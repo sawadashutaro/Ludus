@@ -13,3 +13,21 @@
  *= require_tree .
  *= require_self
  */
+ @import "bootstrap-sprockets";
+ @import "bootstrap";
+
+ *{
+ 	margin:0;
+ 	padding:0;
+ 	box-sizing: border-box;
+ }
+
+ .log_in{
+ 	width:20%;
+ 	margin:0 auto;
+ 	margin-top: 200px;
+ 	padding:20px;
+ 	text-align: center;
+ 	background-color: #ccc;
+ 	border-color: #000;
+ }
