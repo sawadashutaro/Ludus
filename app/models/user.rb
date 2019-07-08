@@ -14,4 +14,6 @@ class User < ApplicationRecord
 
   has_many :tournaments, dependent: :destroy
   
+  attachment :icon
+  
 end
