@@ -78,3 +78,5 @@ gem 'omniauth-google-oauth2'
 gem "refile", require:"refile/rails", github:"manfe/refile"
 
 gem "refile-mini_magick"
+
+gem "rails-i18n"

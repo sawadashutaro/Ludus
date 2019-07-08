@@ -15,18 +15,19 @@
 			</div>
 		<% end %>
 
-		<div class="input-group">
-			<span class="input-group-addon">大会名</span>
-			<%= f.text_field :name, class:"form-control", size:"10" %>
-		</div>
+		<h4>大会名</h4>
+		<%= f.text_field :name, class:"form-control", size:"10" %>
 
 		<h4>イメージ画像</h4>
-		<label>
-			<span class="btn btn-warning">
-				画像を選択してください
-				<%= f.attachment_field :image, style:"display:none" %>
-			</span>
-		</label>
+		<div class="input-group">
+			<label class="input-group-btn">
+				<span class="btn btn-warning">
+					画像を選択してください
+					<%= f.attachment_field :image, style:"display:none", class:"thumbnail" %>
+				</span>
+			</label>
+			<input type="text" class="form-control" readonly="">
+		</div>
 
 		<h4>開催日時</h4>
 		<%= f.datetime_field :date, class:"info-text" %>
@@ -35,7 +36,7 @@
 		<%= f.number_field :maximum, min:"1", class:"info-text" %>
 
 		<h4>ゲーム選択</h4>
-		<%= f.select :title_id, @title.map{|t| [t.game, t.id]}, include_blank:true %>
+		<%= f.select :title_id, Title.all.map{|t| [t.game, t.id]}, include_blank:"選択してください", size:"100x100" %>
 
 		<h4>詳細</h4>
 		<%= f.text_area :detail, size:"50x7", class:"info-text" %>
@@ -46,3 +47,13 @@
 
 	<% end %>
 </div>
+
+<!-- 選択されたファイル名を表示 -->
+<script>
+	$(document).on("change", ".thumbnail", function(){
+		var input= $(this),
+		numFiles = input.get(0).files ? input.get(0).files.length : 1,
+		label = input.val().replace(/\\/g, "/").replace(/.*\//, "");
+		input.parent().parent().next(":text").val(label);
+	});
+</script>

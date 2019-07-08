@@ -1,0 +1,21 @@
+ja:
+  activerecord:
+    models:
+      user: ユーザー
+      tournament: 大会
+      title: ゲーム
+    attributes:
+      user:
+          name: ユーザー名
+          email: メールアドレス
+          icon_id: アイコン
+      tournament:
+                name: 大会名
+                date: 開催日時
+                address: 開催地
+                detail: 詳細
+                maximum: 上限人数
+                title_id: 使用するゲーム
+                image_id: サムネイル画像
+      title:
+          game: ゲーム名

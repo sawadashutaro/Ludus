@@ -15,7 +15,6 @@ class TournamentsController < ApplicationController
   # GET /tournaments/new
   def new
     @tournament = Tournament.new
-    @title = Title.all
   end
 
   # GET /tournaments/1/edit
@@ -71,6 +70,6 @@ class TournamentsController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def tournament_params
-      params.require(:tournament).permit(:name, :image, :game, :date, :address, :detail, :user_id, :is_deleted, :is_completed)
+      params.require(:tournament).permit(:name, :image, :title_id, :date, :address, :detail, :user_id, :is_deleted, :is_completed)
     end
 end

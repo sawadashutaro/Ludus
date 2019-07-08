@@ -6,5 +6,5 @@
 #   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
 #   Character.create(name: 'Luke', movie: movies.first)
 
-Title.create(game:"Hearthstone")
-Title.create(game:"League of Legends")
+Title.create(game:"Title1")
+Title.create(game:"Title2")
