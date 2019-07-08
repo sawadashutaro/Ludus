@@ -10,12 +10,16 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_07_07_065053) do
+ActiveRecord::Schema.define(version: 2019_07_08_065203) do
+
+  create_table "titles", force: :cascade do |t|
+    t.string "game", null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
 
   create_table "tournaments", force: :cascade do |t|
     t.string "name"
-    t.string "image"
-    t.string "game"
     t.datetime "date"
     t.string "address"
     t.text "detail"
@@ -24,6 +28,9 @@ ActiveRecord::Schema.define(version: 2019_07_07_065053) do
     t.boolean "is_completed", default: true
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.integer "maximum"
+    t.integer "title_id"
+    t.text "image_id"
   end
 
   create_table "users", force: :cascade do |t|
