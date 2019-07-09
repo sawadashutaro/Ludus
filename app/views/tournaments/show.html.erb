@@ -7,17 +7,17 @@
 
 <p>
   <strong>Image:</strong>
-  <%= @tournament.image %>
+  <%= attachment_image_tag @tournament, :image %>
 </p>
 
 <p>
   <strong>Game:</strong>
-  <%= @tournament.game %>
+  <%= @tournament.title.game %>
 </p>
 
 <p>
   <strong>Date:</strong>
-  <%= @tournament.date %>
+  <%= simple_time(@tournament.date) %>
 </p>
 
 <p>

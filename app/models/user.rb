@@ -11,4 +11,9 @@ class User < ApplicationRecord
   		user.password = Devise.friendly_token[0,20]
   	end
   end
+
+  has_many :tournaments, dependent: :destroy
+  
+  attachment :icon
+  
 end

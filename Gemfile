@@ -74,3 +74,13 @@ gem 'bootstrap-sass', '~> 3.3.6'
 gem 'omniauth-twitter'
 
 gem 'omniauth-google-oauth2'
+
+gem "refile", require:"refile/rails", github:"manfe/refile"
+
+gem "refile-mini_magick"
+
+gem "rails-i18n"
+
+gem "http"
+
+gem "openssl"
