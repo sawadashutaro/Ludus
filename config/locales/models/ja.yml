@@ -17,5 +17,7 @@ ja:
                 maximum: 上限人数
                 title_id: 使用するゲーム
                 image_id: サムネイル画像
+                latitude: 緯度
+                longitude: 経度
       title:
           game: ゲーム名

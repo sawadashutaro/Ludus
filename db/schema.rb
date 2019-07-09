@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_07_08_082225) do
+ActiveRecord::Schema.define(version: 2019_07_08_113652) do
 
   create_table "titles", force: :cascade do |t|
     t.string "game", null: false
@@ -31,6 +31,8 @@ ActiveRecord::Schema.define(version: 2019_07_08_082225) do
     t.integer "maximum"
     t.integer "title_id"
     t.text "image_id"
+    t.float "latitude"
+    t.float "longitude"
   end
 
   create_table "users", force: :cascade do |t|
