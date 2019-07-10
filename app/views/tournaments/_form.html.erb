@@ -1,62 +1,59 @@
-<%= form_with(model: tournament, local: true) do |form| %>
-  <% if tournament.errors.any? %>
-    <div id="error_explanation">
-      <h2><%= pluralize(tournament.errors.count, "error") %> prohibited this tournament from being saved:</h2>
+<div class="tbody">
 
-      <ul>
-      <% tournament.errors.full_messages.each do |message| %>
-        <li><%= message %></li>
-      <% end %>
-      </ul>
+  <h2>大会編集</h2>
+
+  <%= form_for(@tournament) do |f| %>
+
+    <% if @tournament.errors.any? %>
+      <div id="error_explanation">
+        <h2><%= @tournament.errors.count %>件のエラーが発生しました。</h2>
+        <ul>
+          <% @tournament.errors.full_messages.each do |message| %>
+          <li><%= message %></li>
+          <% end %>
+        </ul>
+      </div>
+    <% end %>
+
+    <h4>大会名</h4>
+    <%= f.text_field :name, class:"form-control", size:"10" %>
+
+    <h4>イメージ画像</h4>
+    <div class="input-group">
+      <label class="input-group-btn">
+        <span class="btn btn-warning">
+          画像を選択してください
+          <%= f.attachment_field :image, style:"display:none", class:"thumbnail" %>
+        </span>
+      </label>
+      <input type="text" class="form-control" readonly="">
     </div>
+
+    <h4>開催日時</h4>
+    <%= f.datetime_field :date, class:"info-text" %>
+
+    <h4>上限人数</h4>
+    <%= f.number_field :maximum, min:"1", class:"info-text" %>
+
+    <h4>ゲーム選択</h4>
+    <%= f.select :title_id, Title.all.map{|t| [t.game, t.id]}, include_blank:"選択してください", size:"100x100" %>
+
+    <h4>詳細</h4>
+    <%= f.text_area :detail, size:"50x7", class:"info-text" %>
+
+    <div>
+      <%= f.submit "更新", class:"btn btn-info" %>
+    </div>
+
   <% end %>
+</div>
 
-  <div class="field">
-    <%= form.label :name %>
-    <%= form.text_field :name %>
-  </div>
-
-  <div class="field">
-    <%= form.label :image %>
-    <%= form.text_field :image %>
-  </div>
-
-  <div class="field">
-    <%= form.label :game %>
-    <%= form.text_field :game %>
-  </div>
-
-  <div class="field">
-    <%= form.label :date %>
-    <%= form.text_field :date %>
-  </div>
-
-  <div class="field">
-    <%= form.label :address %>
-    <%= form.text_field :address %>
-  </div>
-
-  <div class="field">
-    <%= form.label :detail %>
-    <%= form.text_area :detail %>
-  </div>
-
-  <div class="field">
-    <%= form.label :user_id %>
-    <%= form.number_field :user_id %>
-  </div>
-
-  <div class="field">
-    <%= form.label :is_deleted %>
-    <%= form.check_box :is_deleted %>
-  </div>
-
-  <div class="field">
-    <%= form.label :is_completed %>
-    <%= form.check_box :is_completed %>
-  </div>
-
-  <div class="actions">
-    <%= form.submit %>
-  </div>
-<% end %>
+<!-- 選択されたファイル名を表示 -->
+<script>
+  $(document).on("change", ".thumbnail", function(){
+    var input= $(this),
+    numFiles = input.get(0).files ? input.get(0).files.length : 1,
+    label = input.val().replace(/\\/g, "/").replace(/.*\//, "");
+    input.parent().parent().next(":text").val(label);
+  });
+</script>

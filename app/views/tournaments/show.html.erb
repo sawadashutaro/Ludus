@@ -1,23 +1,39 @@
+<div class="tbody">
+
 <p id="notice"><%= notice %></p>
 
-<p>
-  <strong>Name:</strong>
-  <%= @tournament.name %>
-</p>
+ <%= attachment_image_tag @tournament, :image, :fill, 600, 400 %>
+
+ <div>
+   <p>エントリー人数</p>
+   <p>
+    <%= @tournament.entries.count %>
+    <span>/</span>
+    <%= @tournament.maximum %>
+   </p>
+
+   <!-- エントリーしていないならエントリーボタン、しているなら削除ボタンを設置 -->
+   <% if @tournament.entries.where(user_id: current_user.id).exists? %>
+    <%= link_to "エントリー済み", entry_path(@tournament.id), method: :delete, class:"btn btn-success" %>
+   <% else %>
+    <%= link_to "エントリー", entries_path(@tournament.id), method: :post, class:"btn btn-success" %>
+   <% end %>
+ </div>
+
+ <h2><%= @tournament.name %></h2>
+
+
+  <h3><%= @tournament.title.game %></h3>
 
 <p>
-  <strong>Image:</strong>
-  <%= attachment_image_tag @tournament, :image %>
-</p>
-
-<p>
-  <strong>Game:</strong>
-  <%= @tournament.title.game %>
-</p>
-
-<p>
-  <strong>Date:</strong>
+  <strong>開催予定日時:</strong>
   <%= simple_time(@tournament.date) %>
+</p>
+
+<p>
+  <strong>上限人数:</strong>
+  <%= @tournament.maximum %>
+  <span>人</span>
 </p>
 
 <p>
@@ -26,7 +42,7 @@
 </p>
 
 <p>
-  <strong>Detail:</strong>
+  <strong>詳細:</strong>
   <%= @tournament.detail %>
 </p>
 
@@ -47,3 +63,4 @@
 
 <%= link_to 'Edit', edit_tournament_path(@tournament) %> |
 <%= link_to 'Back', tournaments_path %>
+</div>

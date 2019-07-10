@@ -222,6 +222,7 @@ GEM
     rb-fsevent (0.10.3)
     rb-inotify (0.10.0)
       ffi (~> 1.0)
+    redis (4.1.2)
     refile-mini_magick (0.2.0)
       mini_magick (~> 4.0)
       refile (~> 0.5)
@@ -314,7 +315,7 @@ PLATFORMS
 
 DEPENDENCIES
   bootsnap (>= 1.1.0)
-  bootstrap-sass (~> 3.3.6)
+  bootstrap-sass
   byebug
   capybara (>= 2.15)
   chromedriver-helper
@@ -331,6 +332,7 @@ DEPENDENCIES
   rails (~> 5.2.3)
   rails-i18n
   ransack
+  redis
   refile!
   refile-mini_magick
   rspec-rails
