@@ -1,9 +1,12 @@
-<h1>Chat room</h1>
-<p>Find me in app/views/rooms/show.html.erb</p>
+<% if @room.is_opened == true %>
+	<h1><%= @room.tournament.name %>のグループチャットルーム</h1>
+<% else %>
+	<h1><%= @room.tournament.user.name %>さんとのチャットルーム</h1>
+<% end %>
 
-<div id="messages">
+<div id="messages" data-room_id="<%= @room.id %>">
 	<%= render  @messages %>
 </div>
 
-<%= label nil, nil, 'Say something' %>
+<%= label nil, nil, 'チャットを入力してください' %>
 <%= text_field nil, nil, 'data-behavior': 'room_speaker' %>

@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_07_10_061640) do
+ActiveRecord::Schema.define(version: 2019_07_14_071949) do
 
   create_table "entries", force: :cascade do |t|
     t.integer "user_id", null: false
@@ -19,11 +19,27 @@ ActiveRecord::Schema.define(version: 2019_07_10_061640) do
     t.datetime "updated_at", null: false
   end
 
+  create_table "members", force: :cascade do |t|
+    t.integer "room_id"
+    t.integer "user_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.integer "tournament_id"
+  end
+
   create_table "messages", force: :cascade do |t|
     t.text "chat", null: false
     t.integer "user_id", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.integer "room_id"
+  end
+
+  create_table "rooms", force: :cascade do |t|
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.integer "tournament_id"
+    t.boolean "is_opened", default: false
   end
 
   create_table "titles", force: :cascade do |t|
@@ -63,7 +79,7 @@ ActiveRecord::Schema.define(version: 2019_07_10_061640) do
     t.datetime "updated_at", null: false
     t.string "provider"
     t.string "uid"
-    t.string "name"
+    t.string "name", default: "名無し"
     t.text "icon_id"
     t.boolean "is_deleted", default: false
     t.index ["email"], name: "index_users_on_email", unique: true

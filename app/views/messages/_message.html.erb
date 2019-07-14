@@ -1,3 +1,11 @@
 <div class="message">
-	<p><%= message.chat %></p>
+	<table>
+		<tr>
+			<td rowspan="2"><%= attachment_image_tag message.user, :icon, fallback: "no_image.png", size: "40x40" %></td>
+			<td><%= "#{message.user.name}" %></td>
+		</tr>
+		<tr>
+			<td><%= "#{message.chat}" %></td>
+		</tr>
+	</table>
 </div>
