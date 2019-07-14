@@ -4,7 +4,7 @@
 
  <%= attachment_image_tag @tournament, :image, :fill, 600, 400 %>
 
- <div>
+ <div class="entry_box">
    <p>エントリー人数</p>
    <p>
     <%= @tournament.entries.count %>
@@ -13,11 +13,22 @@
    </p>
 
    <!-- エントリーしていないならエントリーボタン、しているなら削除ボタンを設置 -->
-   <% if @tournament.entries.where(user_id: current_user.id).exists? %>
-    <%= link_to "エントリー済み", entry_path(@tournament.id), method: :delete, class:"btn btn-success" %>
+   <%= render "entries/entry", {tournament: @tournament} %>
+ </div>
+
+ <div class="room_box d_room_box">
+   <% if @tournament.members.where(user_id: current_user.id).exists? %>
+    <%= link_to "開催者とチャット", room_path(@d_room.id), class:"btn btn-info" %>
    <% else %>
-    <%= link_to "エントリー", entries_path(@tournament.id), method: :post, class:"btn btn-success" %>
+    <%= form_for Room.new, url:rooms_path do |f| %>
+    <%= f.hidden_field :tournament_id, value:@tournament.id %>
+    <%= f.submit "開催者とチャット", class:"btn btn-info" %>
+    <% end %>
    <% end %>
+ </div>
+
+ <div class="room_box open_room_box">
+   <%= link_to "グループチャット", room_path(@open_room.id), class:"btn btn-warning" %>
  </div>
 
  <h2><%= @tournament.name %></h2>

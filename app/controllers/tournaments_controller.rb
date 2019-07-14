@@ -11,6 +11,12 @@ class TournamentsController < ApplicationController
   # GET /tournaments/1.json
   def show
     @tournament = Tournament.find(params[:id])
+    @open_room = Room.find_by(tournament_id: @tournament.id, is_opened: "true")
+    if  @tournament.members.where(user_id: current_user.id).exists?
+      @d_room = Room.includes(:members).joins(:members).find_by(tournament_id: @tournament.id, members: {user_id: current_user.id } )
+    else
+      @d_room = Room.new
+    end
   end
 
   # GET /tournaments/new
@@ -31,6 +37,10 @@ class TournamentsController < ApplicationController
 
     respond_to do |format|
       if @tournament.save
+        @room = Room.new
+        @room.tournament_id = @tournament.id
+        @room.is_opened = "true"
+        @room.save
         format.html { redirect_to @tournament, notice: 'Tournament was successfully created.' }
         format.json { render :show, status: :created, location: @tournament }
       else

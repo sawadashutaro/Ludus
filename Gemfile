@@ -69,8 +69,6 @@ gem 'ransack'
 
 gem 'jquery-rails'
 
-gem 'bootstrap-sass'
-
 gem 'omniauth-twitter'
 
 gem 'omniauth-google-oauth2'
@@ -86,3 +84,5 @@ gem "http"
 gem "openssl"
 
 gem "redis"
+
+gem 'bootstrap-sass', '~> 3.3.6'
