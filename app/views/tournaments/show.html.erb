@@ -13,7 +13,7 @@
    </p>
 
    <!-- エントリーしていないならエントリーボタン、しているなら削除ボタンを設置 -->
-   <%= render "entries/entry", {tournament: @tournament} %>
+   <%= render partial: "entries/entry", locals: {tournament: @tournament} %>
  </div>
 
  <div class="room_box d_room_box">
@@ -30,6 +30,8 @@
  <div class="room_box open_room_box">
    <%= link_to "グループチャット", room_path(@open_room.id), class:"btn btn-warning" %>
  </div>
+
+ <div class="good_box"></div>
 
  <h2><%= @tournament.name %></h2>
 

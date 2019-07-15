@@ -2,6 +2,13 @@
 
 <h1>Tournaments</h1>
 
+<dl class="searchbox">
+  <%= search_form_for @search, url: tournaments_search_path do |f| %>
+    <dt><%= f.text_field :name_or_title_game_cont ,placeholder: "大会名、ゲーム名で検索" %></dt>
+    <dd><%= f.submit ("検索"), class="search-btn" %></dd>
+  <% end %>
+</dl>
+
 <table>
   <thead>
     <tr>
