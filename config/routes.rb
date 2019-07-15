@@ -4,6 +4,8 @@ Rails.application.routes.draw do
   	resource :entries, only: [:create, :destroy]
   end
 
+  get 'tournaments/search' => 'tournaments#search'
+
   devise_for :users, controllers: { omniauth_callback: "users/omniauth_callbacks"}
 
   resources :rooms, only: [:show, :create]

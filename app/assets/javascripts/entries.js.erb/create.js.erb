@@ -1,1 +1,1 @@
-$("<%= @id_name %>").html('<%= escape_javascript(render("entries/entry", tournament: @tournament )) %>');
+$(".entry-button").html('<%= j(render partial: "entries/entry", locals: {tournament: @tournament} ) %>');

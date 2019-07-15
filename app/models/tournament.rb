@@ -6,6 +6,7 @@ class Tournament < ApplicationRecord
 	has_many :entries, dependent: :destroy
 	has_many :rooms
 	has_many :members
+	has_many :goods
 
 	attachment :image
 

@@ -5,6 +5,13 @@ class TournamentsController < ApplicationController
   # GET /tournaments.json
   def index
     @tournaments = Tournament.all
+    @search = Tournament.ransack(params[:q])
+    @search_tournaments = @search.result.includes(:title).page(params[:page])
+  end
+
+  def search
+    @search = Tournament.ransack(params[:q])
+    @search_tournaments = @search.result.includes(:title).page(params[:page])
   end
 
   # GET /tournaments/1
