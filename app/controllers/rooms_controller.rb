@@ -5,7 +5,7 @@ class RoomsController < ApplicationController
   end
 
   def create
-  	@room = Room.new
+  	@room = Room.new(room_params)
   	@room.save
   	member = Member.new
   	member.room_id = @room.id
@@ -13,5 +13,11 @@ class RoomsController < ApplicationController
   	member.tournament_id = @room.tournament_id
   	member.save
   	redirect_to room_path(@room.id)
+  end
+
+  private
+
+  def room_params
+    params.require(:room).permit(:tournament_id)
   end
 end

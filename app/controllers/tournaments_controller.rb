@@ -1,17 +1,15 @@
 class TournamentsController < ApplicationController
-  before_action :set_tournament, only: [:show, :edit, :update, :destroy]
+  before_action :set_tournament, only: [:destroy]
 
   # GET /tournaments
   # GET /tournaments.json
   def index
     @tournaments = Tournament.all
     @search = Tournament.ransack(params[:q])
-    @search_tournaments = @search.result.includes(:title).page(params[:page])
+    @search_tournaments = @search.result.includes(:title)
   end
 
   def search
-    @search = Tournament.ransack(params[:q])
-    @search_tournaments = @search.result.includes(:title).page(params[:page])
   end
 
   # GET /tournaments/1

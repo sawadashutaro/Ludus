@@ -1,0 +1,130 @@
+<div class="tbody">
+
+	<h1>マイページ</h1>
+
+	<div class="myicon">
+		<%= attachment_image_tag @user, :icon, :fill, 300, 300, fallback: "no_image.png", size:"300x300", class:"img-circle" %>
+	</div>
+
+	<div>
+		<%= @user.name %>
+		<%= @total_good %>
+		<i class="fa fa-heart" aria-hidden="true" style="color: red;"></i>
+	</div>
+
+	<% if @user == current_user %>
+		<div>
+			<%= link_to "プロフィール編集へ", edit_user_path, class:"btn btn-warning" %>
+		</div>
+
+		<div>
+			<%= link_to "ログアウト", destroy_user_session_path, method: :delete, class:"btn btn-danger" %>
+		</div>
+
+		<div class="wrap">
+
+			<ul id="tab-menu" class="clearfix">
+				<li><a href="#tab1" class="active">エントリー済みの大会</a></li>
+				<li><a href="#tab2" class="">投稿した大会</a></li>
+				<li><a href="#tab3" class="">個人チャット一覧</a></li>
+			</ul>
+
+			<div id="tab-contents" class="clearfix">
+
+				<!-- エントリー済みの大会一覧 -->
+				<div id="tab1" class="tab container">
+					<% @user.entries.each do |entry| %>
+						<%= link_to tournament_path(entry.tournament_id) do %>
+							<div class="row">
+								<div class="col-lg-3">
+									<%= attachment_image_tag entry.tournament, :image, :fill, 200, 200 %>
+								</div>
+								<div class="col-lg-3">
+									<p class="s-result"><%= entry.tournament.name %></p>
+									<p class="s-result"><%= entry.tournament.title.game %></p>
+									<p class="s-result"><%= simple_time(entry.tournament.date) %></p>
+									<p class="s-result"><%= entry.tournament.entries.count %><span>/</span><%= entry.tournament.maximum %></p>
+								</div>
+							</div>
+						<% end %>
+					<% end %>
+				</div>
+
+				<!-- 投稿した大会一覧 -->
+				<div id="tab2" class="tab container">
+					<% @user.tournaments.each do |tournament| %>
+						<%= link_to tournament_path(tournament.id) do %>
+							<div class="row">
+								<div class="col-lg-3">
+							       <%= attachment_image_tag tournament, :image, :fill, 200, 200 %>
+							    </div>
+							    <div class="col-lg-3">
+								    <p class="s-result"><%= tournament.name %></p>
+								    <p class="s-result"><%= tournament.title.game %></p>
+								    <p class="s-result"><%= simple_time(tournament.date) %></p>
+								    <p class="s-result"><%= tournament.entries.count %><span>/</span><%= tournament.maximum %></p>
+								</div>
+							</div>
+						<% end %>
+					<% end %>
+				</div>
+
+				<!-- 自分が投稿した大会の個人チャット一覧 -->
+				<div id="tab3" class="tab container">
+					<% @user.tournaments.each do |tournament| %>
+						<% tournament.rooms.each do |room| %>
+							<%= link_to room_path(room.id) do %>
+									<% room.members.each do |member| %>
+										<div class="row">
+											<div class="col-lg-3">
+												<%= attachment_image_tag member.user, :icon, :fill, 150, 150, fallback: "no_image.png", size:"200x200", class: "img-circle" %>
+											</div>
+											<div class="col-lg-3">
+												<p class="s-result"><%= room.tournament.name %></p>
+												<p class="s-result"><%= member.user.name %></p>
+												<p class="s-result"><%= simple_time(room.updated_at) %></p>
+											</div>
+										</div>
+									<% end %>
+							<% end %>
+						<% end %>
+					<% end %>
+				</div>
+			</div>
+		</div>
+
+	<% else %>
+
+		<!-- 投稿した大会一覧 -->
+		<div class="container">
+			<% @user.tournaments.each do |tournament| %>
+				<%= link_to tournament_path(tournament.id) do %>
+					<div class="row">
+						<div class="col-lg-3">
+							<%= attachment_image_tag tournament, :image, :fill, 200, 200 %>
+						</div>
+						<div class="col-lg-3">
+							<p class="s-result"><%= tournament.name %></p>
+							<p class="s-result"><%= tournament.title.game %></p>
+							<p class="s-result"><%= simple_time(tournament.date) %></p>
+							<p class="s-result"><%= tournament.entries.count %><span>/</span><%= tournament.maximum %></p>
+						</div>
+					</div>
+				<% end %>
+			<% end %>
+		</div>
+
+	<% end %>
+</div>
+
+<script>
+	$('#tab-contents .tab[id != "tab1"]').hide();
+
+	$("#tab-menu a").on("click", function(){
+		$("#tab-contents .tab").hide();
+		$("#tab-menu .active").removeClass("active");
+		$(this).addClass("active");
+		$($(this).attr("href")).show();
+		return false;
+	});
+</script>

@@ -5,6 +5,7 @@
     <%= csrf_meta_tags %>
     <%= csp_meta_tag %>
 
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.0.13/css/all.css" >
     <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
     <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
   </head>
@@ -12,13 +13,23 @@
   <body>
     <header>
       <nav>
-        <div class="logo"></div>
+          <div class="logo"></div>
       </nav>
       <ul>
         <% if user_signed_in? %>
+
           <li>
-            <% user_icon %><%= attachment_image_tag @user, :icon, fallback: "no_image.png", size:"60x60" %>
+            <%= link_to user_path(current_user.id) do %>
+             <%= attachment_image_tag @user, :icon, fallback: "no_image.png", size:"60x60", class:"img-circle" %>
+            <% end %>
           </li>
+
+        <% else %>
+
+          <li><%= link_to "新規登録", new_user_registration_path %></li>
+          <span>|</span>
+          <li><%= link_to "ログイン", new_user_session_path %></li>
+
         <% end %>
       </ul>
     </header>

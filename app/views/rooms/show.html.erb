@@ -1,12 +1,18 @@
-<% if @room.is_opened == true %>
-	<h1><%= @room.tournament.name %>のグループチャットルーム</h1>
-<% else %>
-	<h1><%= @room.tournament.user.name %>さんとのチャットルーム</h1>
-<% end %>
+<div class="tbody">
 
-<div id="messages" data-room_id="<%= @room.id %>">
-	<%= render  @messages %>
+	<% if @room.is_opened == true %>
+		<h1><%= @room.tournament.name %>のグループチャットルーム</h1>
+	<% else %>
+		<h1><%= @room.tournament.user.name %>さんとのチャットルーム</h1>
+	<% end %>
+
+	<div id="messages" data-room_id="<%= @room.id %>">
+		<%= render  @messages %>
+	</div>
+
+	<div class="chat-form">
+		<%= label nil, nil, 'チャットを入力してください' %>
+		<%= text_field nil, nil, 'data-behavior': 'room_speaker' %>
+	</div>
+
 </div>
-
-<%= label nil, nil, 'チャットを入力してください' %>
-<%= text_field nil, nil, 'data-behavior': 'room_speaker' %>

@@ -1,5 +1,23 @@
 <% if current_user.entries.find_by(tournament_id: tournament.id) %>
-    <%= link_to "エントリー済み", tournament_entries_path(tournament), method: :delete, class:"btn btn-success entry-button", remote: true %>
+	<p class="entry-btn">
+	    <%= tournament.entries.count %>
+	    <span>/</span>
+	    <%= tournament.maximum %>
+   </p>
+    <div>
+    	<%= link_to tournament_entries_path(tournament), method: :delete, class:"entry-button", remote: true do %>
+    	<div class="btn btn-success">エントリー済み</div>
+    	<% end %>
+    </div>
    <% else %>
-    <%= link_to "エントリー", tournament_entries_path(tournament), method: :post, class:"btn btn-success entry-button", remote: true %>
+   <p class="entry-btn">
+	    <%= tournament.entries.count %>
+	    <span>/</span>
+	    <%= tournament.maximum %>
+   </p>
+    <div>
+    	<%= link_to tournament_entries_path(tournament), method: :post, class:"entry-button", remote: true do %>
+    	<div class="btn btn-success">エントリー</div>
+    	<% end %>
+    </div>
 <% end %>
