@@ -1,3 +1,90 @@
 // Place all the styles related to the rooms controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
+
+.message{
+	width:100%;
+	height:auto;
+	overflow:hidden;
+	margin-bottom:20px;
+}
+.chat-face{
+	float:left;
+	margin-right:-120px;
+}
+.chat-name{
+	margin: 0 auto;
+	color:#000;
+}
+.chat-area{
+	width:100%;
+	float:right;
+}
+.chat-hukidashi{
+	display:inline-block;
+	padding:15px 20px;
+	margin-left: 100px;
+	margin-top: 8px;
+	border-radius: 10px;
+	position:relative;
+	background-color: #BCF5A9;
+}
+.chat-hukidashi:after{
+	content:"";
+	position:absolute;
+	top:50%; left:-10px;
+	margin-top:-10px;
+	display:block;
+	width:0px;
+	height:0px;
+	border-style:solid;
+	border-width:10px 10px 10px 0;
+	border-color:transparent #BCF5A9 transparent transparent;
+}
+
+.mymessage{
+	width:100%;
+	height:auto;
+	overflow:hidden;
+	margin-bottom:20px;
+}
+.mychat-face{
+	float:right;
+	margin-left:-120px;
+}
+.mychat-name{
+	margin:0 auto;
+	color:#000;
+}
+.mychat-area{
+	width:100%;
+	float:left;
+}
+.mychat-hukidashi{
+	float:right;
+	display:inline-block;
+	padding:15px 20px;
+	margin-right: 100px;
+	margin-top: 8px;
+	border-radius: 10px;
+	position:relative;
+	background-color: #D9F0FF;
+}
+.mychat-hukidashi:after{
+	content:"";
+	position:absolute;
+	top:50%; right:-10px;
+	margin-top:-10px;
+	display:block;
+	width:0px;
+	height:0px;
+	border-style:solid;
+	border-width:10px 0 10px 10px;
+	border-color:transparent transparent transparent #D9F0FF;
+}
+
+.chat-form{
+	margin:0 auto;
+	width:80%;
+	padding:20px;
+}

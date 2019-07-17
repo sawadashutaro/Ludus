@@ -6,18 +6,14 @@
 
  <div class="entry_box">
    <p>エントリー人数</p>
-   <p>
-    <%= @tournament.entries.count %>
-    <span>/</span>
-    <%= @tournament.maximum %>
-   </p>
-
    <!-- エントリーしていないならエントリーボタン、しているなら削除ボタンを設置 -->
    <%= render partial: "entries/entry", locals: {tournament: @tournament} %>
  </div>
 
  <div class="room_box d_room_box">
-   <% if @tournament.members.where(user_id: current_user.id).exists? %>
+   <% if @tournament.user_id == current_user.id %>
+    <%= link_to "大会編集", edit_tournament_path(@tournament), class:"btn btn-info" %>
+   <% elsif @tournament.members.where(user_id: current_user.id).exists? %>
     <%= link_to "開催者とチャット", room_path(@d_room.id), class:"btn btn-info" %>
    <% else %>
     <%= form_for Room.new, url:rooms_path do |f| %>
@@ -31,7 +27,9 @@
    <%= link_to "グループチャット", room_path(@open_room.id), class:"btn btn-warning" %>
  </div>
 
- <div class="good_box"></div>
+ <div class="good_box">
+   <%= render partial: "goods/good", locals: {tournament: @tournament} %>
+ </div>
 
  <h2><%= @tournament.name %></h2>
 

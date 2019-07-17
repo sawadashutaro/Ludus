@@ -1,0 +1,52 @@
+// Place all the styles related to the users controller here.
+// They will automatically be included in application.css.
+// You can use Sass (SCSS) here: http://sass-lang.com/
+ 
+.wrap{
+	width:90%;
+	max-width: 800px;
+	margin: 0 auto;
+}
+
+.clearfix:after{
+	content:"";
+	clear:both;
+	display: block;
+}
+
+#tab-menu li{
+	float:left;
+	list-style-type: none;
+	width:30%;
+}
+
+#tab-menu a{
+	color:#ccc;
+	text-decoration: none;
+	display: block;
+	padding:20px;
+	text-align: center;
+	border-bottom: 1px solid #ccc;
+}
+#tab-menu .active{
+	color:#555;
+	border-bottom: 3px solid #999;
+}
+#tab-contents .tab{
+	padding:30px;
+	background:#fff;
+	border-top:none;
+}
+#tab-contents p{
+	color:#000;
+	line-height: 2.5;
+}
+
+.myicon{
+	width:50%;
+	margin:0 auto;
+}
+
+.tab:hover{
+	text-decoration: none;
+}

@@ -1,12 +1,17 @@
 Rails.application.routes.draw do
-  get 'rooms/show'
   resources :tournaments do
   	resource :entries, only: [:create, :destroy]
+  	resource :goods, only: [:create, :destroy]
   end
 
   get 'tournaments/search' => 'tournaments#search'
 
   devise_for :users, controllers: { omniauth_callback: "users/omniauth_callbacks"}
+  devise_scope :user do
+    root :to => "users#show"
+  end
+
+  resources :users, only: [:show, :edit, :update]
 
   resources :rooms, only: [:show, :create]
 
