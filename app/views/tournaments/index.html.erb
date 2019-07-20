@@ -1,19 +1,8 @@
 <div class="tbody">
 
-
-
-<% if @search_tournaments.nil? %>
-
   <h1>大会一覧</h1>
 
   <p id="notice"><%= notice %></p>
-
-  <dl class="searchbox">
-    <%= search_form_for @search do |f| %>
-      <dt><%= f.text_field :name_or_title_game_cont ,placeholder: "\uF002 大会名、ゲーム名で検索", class:"fas" %></dt>
-      <dd><%= f.submit "検索", class:"search-btn" %></dd>
-    <% end %>
-  </dl>
 
   <table>
     <thead>
@@ -55,30 +44,4 @@
 
   <%= link_to 'New Tournament', new_tournament_path %>
 
-<% else %>
-
-  <h1>検索結果</h1>
-
-  <p id="notice"><%= notice %></p>
-
-  <dl class="searchbox">
-    <%= search_form_for @search do |f| %>
-      <dt><%= f.text_field :name_or_title_game_cont ,placeholder: "\uF002 大会名、ゲーム名で検索", class:"fas" %></dt>
-      <dd><%= f.submit "検索", class:"search-btn" %></dd>
-    <% end %>
-  </dl>
-
-  <% @search_tournaments.each do |tournament| %>
-    <div>
-      <div>
-        <%= attachment_image_tag tournament, :image, :fill, 200, 200 %>
-      </div>
-      <p class="s-result"><%= tournament.name %></p>
-      <p class="s-result"><%= tournament.title.game %></p>
-      <p class="s-result"><%= simple_time(tournament.date) %></p>
-      <p class="s-result"><%= tournament.entries.count %><span>/</span><%= tournament.maximum %></p>
-    </div>
-  <% end %>
-  </div>
-
-<% end %>
+</div>

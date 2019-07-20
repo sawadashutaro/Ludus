@@ -1,4 +1,5 @@
 class Tournament < ApplicationRecord
+	after_validation :geocode
 
 	belongs_to :user
 	belongs_to :title
@@ -10,10 +11,15 @@ class Tournament < ApplicationRecord
 
 	attachment :image
 
-	# after_validation :geocode
+	private
 
-	# private
-	# def geocode
-	# 	uri = URI.escape()
-	
+	def geocode
+		if self.address != nil
+			uri = URI.escape("https://maps.googleapis.com/maps/api/geocode/json?address="+self.address.gsub(" ", "")+"&key=AIzaSyCE-ffQx828zkd1oHpOF9z5QZaiv38zeH8")
+			res = HTTP.get(uri).to_s
+			response = JSON.parse(res)
+			self.latitude = response["results"][0]["geometry"]["location"]["lat"]
+			self.longitude = response["results"][0]["geometry"]["location"]["lng"]
+		end
+	end
 end

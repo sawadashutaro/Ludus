@@ -5,8 +5,6 @@ class TournamentsController < ApplicationController
   # GET /tournaments.json
   def index
     @tournaments = Tournament.all
-    @search = Tournament.ransack(params[:q])
-    @search_tournaments = @search.result.includes(:title)
   end
 
   def search
@@ -40,6 +38,10 @@ class TournamentsController < ApplicationController
     @tournament = Tournament.new(tournament_params)
     @tournament.user_id = current_user.id
 
+    if params[:preview] != nil
+      @tournament.is_completed = false
+    end
+
     respond_to do |format|
       if @tournament.save
         @room = Room.new
@@ -60,6 +62,12 @@ class TournamentsController < ApplicationController
   def update
 
     @tournament = Tournament.find(params[:id])
+
+    if params[:preview] != nil
+      @tournament.is_completed = false
+    else
+      @tournament.is_completed = true
+    end
 
     respond_to do |format|
       if @tournament.update(tournament_params)

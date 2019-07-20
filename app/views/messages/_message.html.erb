@@ -1,4 +1,8 @@
-<% if message.user_id == current_user.id %>
+
+messe:<%= message.user_id %>
+/my<%= myid %>
+<% if message.user_id == myid %>
+
 
 	<div class="mymessage">
 		<%= link_to user_path(message.user.id) do %>

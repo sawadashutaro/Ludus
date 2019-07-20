@@ -1,4 +1,7 @@
 Rails.application.routes.draw do
+  root to: 'homes#top'
+
+  get 'homes/top' => 'homes#top'
   resources :tournaments do
   	resource :entries, only: [:create, :destroy]
   	resource :goods, only: [:create, :destroy]
@@ -8,7 +11,7 @@ Rails.application.routes.draw do
 
   devise_for :users, controllers: { omniauth_callback: "users/omniauth_callbacks"}
   devise_scope :user do
-    root :to => "users#show"
+    root :to => "tournaments#index"
   end
 
   resources :users, only: [:show, :edit, :update]

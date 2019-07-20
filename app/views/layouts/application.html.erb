@@ -15,24 +15,24 @@
       <nav>
           <div class="logo"></div>
       </nav>
-      <ul>
+      
+      <div>
         <% if user_signed_in? %>
 
-          <li>
+          <div class="h-icon">
             <%= link_to user_path(current_user.id) do %>
-             <%= attachment_image_tag @user, :icon, fallback: "no_image.png", size:"60x60", class:"img-circle" %>
+             <%= attachment_image_tag current_user, :icon, fallback: "no_image.png", size:"60x60", class:"img-circle" %>
             <% end %>
-          </li>
+          </div>
 
         <% else %>
 
-          <li><%= link_to "新規登録", new_user_registration_path %></li>
-          <span>|</span>
-          <li><%= link_to "ログイン", new_user_session_path %></li>
+          <%= link_to "新規登録", new_user_registration_path %><span>|</span><%= link_to "ログイン", new_user_session_path %>
 
         <% end %>
-      </ul>
+      </div>
     </header>
+    <div class="box"></div>
     <%= yield %>
   </body>
 </html>

@@ -1,0 +1,37 @@
+<div id="multiscroll">
+	<div class="ms-left">
+		<div class="ms-section">左<br>第一セクション</div>
+		<div class="ms-section">左<br>第二セクション</div>
+		<div class="ms-section">左<br>第三セクション</div>
+	</div>
+	<div class="ms-right">
+		<div class="ms-section">右<br>第一セクション</div>
+		<div class="ms-section">右<br>第二セクション</div>
+		<div class="ms-section">右<br>第三セクション</div>
+	</div>
+</div>
+
+<script>
+	$(document).ready(function(){
+		$("#multiscroll").multiscroll({
+			verticalCentered:true,
+			scrollingSpeed:700,
+			easing:'easeInQuart',
+			menu:false,
+			sectionColor:['red', 'blue', 'yellow'],
+			navigation:true,
+			navigationPosition:'right',
+			loopBottom:true,
+			loopTop:true,
+			css3:false,
+			paddingTop:0,
+			paddingBottom:0,
+			normalScrollElements:null,
+			keyboardScrolling:true,
+			touchSensitivity:5,
+			sectionSelector:'.ms-section',
+			leftSelector:'.ms-left',
+			rightSelector:'.ms-right',
+		});
+	});
+</script>

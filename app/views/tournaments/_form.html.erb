@@ -38,11 +38,16 @@
     <h4>ゲーム選択</h4>
     <%= f.select :title_id, Title.all.map{|t| [t.game, t.id]}, include_blank:"選択してください", size:"100x100" %>
 
+    <h4>開催住所</h4>
+    <%= f.text_field :address %>
+
     <h4>詳細</h4>
     <%= f.text_area :detail, size:"50x7", class:"info-text" %>
 
     <div>
       <%= f.submit "更新", class:"btn btn-info" %>
+      <%= f.submit "下書き", class:"btn btn-default", name:"preview" %>
+      <span>※下書きのものはマイページの投稿した大会一覧にのみ表示されます</span>
     </div>
 
   <% end %>
