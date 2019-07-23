@@ -1,5 +1,5 @@
 class Title < ApplicationRecord
 
-	has_many :titles, dependent: :destroy
-	
+	has_many :tournaments, dependent: :destroy
+
 end

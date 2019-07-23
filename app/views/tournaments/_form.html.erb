@@ -5,7 +5,7 @@
   <%= form_for(@tournament) do |f| %>
 
     <% if @tournament.errors.any? %>
-      <div id="error_explanation">
+      <div id="error_explanation" class="alert alert-danger">
         <h2><%= @tournament.errors.count %>件のエラーが発生しました。</h2>
         <ul>
           <% @tournament.errors.full_messages.each do |message| %>
@@ -15,8 +15,10 @@
       </div>
     <% end %>
 
-    <h4>大会名</h4>
-    <%= f.text_field :name, class:"form-control", size:"10" %>
+    <div class="n-name">
+      <h4>大会名</h4>
+      <%= f.text_field :name, class:"form-control", size:"10" %>
+    </div>
 
     <h4>イメージ画像</h4>
     <div class="input-group">
@@ -29,20 +31,32 @@
       <input type="text" class="form-control" readonly="">
     </div>
 
-    <h4>開催日時</h4>
-    <%= f.datetime_field :date, class:"info-text" %>
+    <div class="date">
+      <h4>開催日時</h4>
+      <%= f.datetime_field :date, class:"form-control" %>
+      <p>※時間まで入力してください</p>
+    </div>
 
-    <h4>上限人数</h4>
-    <%= f.number_field :maximum, min:"1", class:"info-text" %>
+    <div class="maxi">
+      <h4>上限人数</h4>
+      <%= f.number_field :maximum, min:"1", class:"form-control" %>
+    </div>
 
     <h4>ゲーム選択</h4>
     <%= f.select :title_id, Title.all.map{|t| [t.game, t.id]}, include_blank:"選択してください", size:"100x100" %>
 
-    <h4>詳細</h4>
-    <%= f.text_area :detail, size:"50x7", class:"info-text" %>
+    <div class="add">
+      <h4>開催住所</h4>
+      <%= f.text_field :address, class:"form-control" %>
+    </div>
 
-    <div>
+    <h4>詳細</h4>
+    <%= f.text_area :detail, size:"50x7", class:"form-control" %>
+
+    <div class="button-t">
       <%= f.submit "更新", class:"btn btn-info" %>
+      <%= f.submit "下書き", class:"btn btn-default", name:"preview" %>
+      <span>※下書きのものはマイページの一覧にのみ表示されます</span>
     </div>
 
   <% end %>

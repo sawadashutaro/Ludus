@@ -17,6 +17,7 @@
  @import "bootstrap";
  @import "font-awesome-sprockets";
  @import "font-awesome";
+ @import "slick";
 
  *{
  	margin:0;
@@ -27,22 +28,27 @@
  .log_in{
  	width:20%;
  	margin:0 auto;
- 	margin-top: 200px;
+ 	margin-top: 120px;
  	padding:20px;
  	text-align: center;
- 	background-color: #ccc;
+ 	background-color: #eee;
  	border-color: #000;
  }
 
  .sign_up{
  	width:30%;
  	margin:0 auto;
- 	margin-top: 200px;
+ 	margin-top: 120px;
  	padding:20px;
  	text-align: center;
- 	background-color: #ccc;
+ 	background-color: #eee;
  	border-color: #000;
  }
+
+.google-log{
+	margin-top:5px;
+	margin-bottom: 5px;
+}
 
  .entry-btn{
 	color:#000;
@@ -62,14 +68,207 @@
 .tbody{
 	width:50%;
 	margin:0 auto;
+	margin-bottom: 20px;
 }
-
+.rbody{
+	width:40%;
+	margin:0 auto;
+}
 .s-result{
   border:1px solid #aaa;
   border-radius: 3px;
   text-decoration: none;
+  color:#000;
+  padding-left: 5px;
 }
 
 .s-result:hover{
 	text-decoration: none;
 }
+.room-list{
+	float:left;
+	margin-top: 5px;
+}
+.c-form{
+	border-radius: 3px;
+}
+
+header{
+	position: relative;
+	background-color: #FFFBC7;
+	width:100%;
+	height:65px;
+	position:fixed;
+	z-index: 100;
+}
+.h-icon{
+	position:absolute;
+	top:3px;
+	right:50px;
+}
+.h-menu{
+	position:absolute;
+	top:10px;
+	right:50px;
+	font-size: 20px;
+	color:#fff;
+}
+.h-btn{
+	color:#fff;
+}
+.h-btn:hover{
+	text-decoration: none;
+	color:#000;
+}
+.rlist-contents{
+	margin-top:5px;
+	margin-bottom:5px;
+	margin-left:10px;
+	padding-bottom:5px;
+	border-bottom:2px solid #ccc;
+}
+.room-link{
+	text-decoration: none;
+	color:#000;
+}
+.room-link:hover{
+	text-decoration: none;
+}
+
+.box{
+	width:100%;
+	height:75px;
+}
+
+#map{
+	height:400px;
+	margin-left:auto;
+	margin-right:auto;
+	text-align:left;
+	width:80%;
+}
+
+.side-box{
+	width:15%;
+	position: fixed;
+	right:150px;
+	top:100px;
+}
+
+.show-body{
+	position:relative;
+}
+.entry_box{
+	text-align: center;
+	font-size:20px;
+}
+.chat-btn{
+	margin:0 auto;
+	margin-bottom: 20px;
+	margin-top: 20px;
+}
+.good_box{
+	font-size:20px;
+	text-align:center;
+	margin-top:20px;
+}
+
+.room_box{
+	text-align: center;
+}
+
+.show-h{
+	text-align: center;
+}
+.show-n{
+	font-size: 50px;
+}
+.show-g{
+	font-size: 40px;
+}
+
+.show-form{
+	border:2px solid #ccc;
+	border-radius: 3px;
+	display:inline-block;
+	min-width: 15%;
+	font-size:25px;
+	padding:3px;
+}
+.show-contents{
+	font-size:20px;
+}
+.shousai{
+	width:80%;
+	min-height:300px;
+	word-wrap: break-word;
+}
+
+.date{
+	width:25%;
+}
+
+.n-name{
+	width:50%;
+}
+.maxi{
+	width:20%;
+}
+.button-t{
+	margin-top:10px;
+}
+
+#loading{
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    margin-top: -25px;
+    margin-left: -25px;
+  }
+
+#loader-bg {
+    position: fixed;
+    width: 100%;
+    height: 100%;
+    top: 0px;
+    left: 0px;
+    background: #fff;
+    z-index: 9999;
+  }
+
+  .logo{
+  	width:20%;
+  	text-align: center;
+  	margin:0 auto;
+  }
+
+  .bxslider{
+  	text-decoration: none;
+  	text-align: center;
+  	color:#000;
+  }
+
+  .btn-top{
+  	background:#b5ff2a;
+  	border-color: #b5ff2a;
+  }
+
+  .btn-top:hover{
+  	background:#b5ff2a;
+  	border-color: #b5ff2a;
+  	color:#eee;
+  }
+
+  .btn-success{
+  	background:#80FF80;
+  	border:#80FF80;
+  }
+
+  .btn-success:hover{
+  	background:#abf126;
+  	border:#abf126;
+  }
+
+  .g-image:hover{
+  	text-decoration: none;
+  }

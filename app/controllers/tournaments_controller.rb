@@ -5,8 +5,7 @@ class TournamentsController < ApplicationController
   # GET /tournaments.json
   def index
     @tournaments = Tournament.all
-    @search = Tournament.ransack(params[:q])
-    @search_tournaments = @search.result.includes(:title)
+    @titles = Title.all
   end
 
   def search
@@ -40,6 +39,13 @@ class TournamentsController < ApplicationController
     @tournament = Tournament.new(tournament_params)
     @tournament.user_id = current_user.id
 
+    if params[:preview] != nil
+      @tournament.is_completed = false
+      @tournament.save!(validate: false)
+      redirect_to tournament_path(@tournament.id)
+      return
+    end
+
     respond_to do |format|
       if @tournament.save
         @room = Room.new
@@ -61,6 +67,15 @@ class TournamentsController < ApplicationController
 
     @tournament = Tournament.find(params[:id])
 
+    if params[:preview] != nil
+      @tournament.is_completed = false
+      @tournament.save!(validate: false)
+      redirect_to tournament_path(@tournament.id)
+      return
+    else
+      @tournament.is_completed = true
+    end
+
     respond_to do |format|
       if @tournament.update(tournament_params)
         format.html { redirect_to @tournament, notice: 'Tournament was successfully updated.' }
@@ -75,7 +90,12 @@ class TournamentsController < ApplicationController
   # DELETE /tournaments/1
   # DELETE /tournaments/1.json
   def destroy
-    @tournament.destroy
+    if @tournament.user_id != current_user.id
+      redirect_to tournament_path(@tournament.id)
+    else
+      @tournament.destroy
+      redirect_to user_path(current_user.id)
+    end
     respond_to do |format|
       format.html { redirect_to tournaments_url, notice: 'Tournament was successfully destroyed.' }
       format.json { head :no_content }

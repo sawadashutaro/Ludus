@@ -12,7 +12,10 @@ App.room = App.cable.subscriptions.create { channel: "RoomChannel", room_id: roo
     @perform 'speak', message: message
 
   received: (data) ->
-  	$('#messages').append data.message
+    $('#messages').append data['message'].render
+    changeClass(data)
+    return
+
 
  $(document).on 'keypress', '[data-behavior~=room_speaker]', (event) ->
   if event.keyCode is 13
@@ -20,3 +23,14 @@ App.room = App.cable.subscriptions.create { channel: "RoomChannel", room_id: roo
 
   	event.target.value = ''
   	event.preventDefault()
+
+changeClass = (data)->
+  current = $('.current_user').val()
+  if String(data.message.user) != $('.current_user').val()
+    lastContent = $('.mymessage:last')
+    lastContent.find(".mymessage").removeClass('mymessage').addClass('message')
+    lastContent.find(".mychat-face").removeClass('mychat-face').addClass('chat-face')
+    lastContent.find(".mychat-name").removeClass('mychat-name').addClass('chat-name')
+    lastContent.find(".mychat-area").removeClass('mychat-area').addClass('chat-area')
+    lastContent.find(".mychat-hukidashi").removeClass('mychat-hukidashi').addClass('chat-hukidashi')
+  return

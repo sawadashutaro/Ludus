@@ -1,24 +1,36 @@
-<div class="tbody">
+<div class="ubody">
 
-	<h1>マイページ</h1>
+	<div class="show-contents">
 
-	<div class="myicon">
-		<%= attachment_image_tag @user, :icon, :fill, 300, 300, fallback: "no_image.png", size:"300x300", class:"img-circle" %>
-	</div>
+		<h1>マイページ</h1>
+		<p><%= notice %></p>
 
-	<div>
-		<%= @user.name %>
-		<%= @total_good %>
-		<i class="fa fa-heart" aria-hidden="true" style="color: red;"></i>
+		<div class="myicon">
+			<%= attachment_image_tag @user, :icon, :fill, 300, 300, fallback: "no_image.png", size:"300x300", class:"img-circle" %>
+		</div>
+
+		<div class="container">
+			<div class="row">
+				<div class="col-lg-5"><h2 class="uname"><%= @user.name %></h2></div>
+				<div class="mygood">
+					<h2><i class="fa fa-heart" aria-hidden="true" style="color: red;"></i>
+					<%= @total_good %></h2>
+				</div>
+			</div>
+		</div>
+
 	</div>
 
 	<% if @user == current_user %>
-		<div>
-			<%= link_to "プロフィール編集へ", edit_user_path, class:"btn btn-warning" %>
-		</div>
 
-		<div>
-			<%= link_to "ログアウト", destroy_user_session_path, method: :delete, class:"btn btn-danger" %>
+		<div class="show-contents">
+
+			<div class="show-btns">
+				<%= link_to "プロフィール編集へ", edit_user_path, class:"btn btn-warning" %>
+				<%= link_to "大会新規投稿", new_tournament_path, class:"btn btn-success" %>
+				<%= link_to "ログアウト", destroy_user_session_path, method: :delete, class:"btn btn-danger" %>
+			</div>
+
 		</div>
 
 		<div class="wrap">
@@ -27,19 +39,20 @@
 				<li><a href="#tab1" class="active">エントリー済みの大会</a></li>
 				<li><a href="#tab2" class="">投稿した大会</a></li>
 				<li><a href="#tab3" class="">個人チャット一覧</a></li>
+				<li><a href="#tab4" class="">下書き一覧</a></li>
 			</ul>
 
 			<div id="tab-contents" class="clearfix">
 
 				<!-- エントリー済みの大会一覧 -->
-				<div id="tab1" class="tab container">
-					<% @user.entries.each do |entry| %>
+				<div id="tab1" class="tab container jscroll jlist">
+					<% @entry.each do |entry| %>
 						<%= link_to tournament_path(entry.tournament_id) do %>
-							<div class="row">
-								<div class="col-lg-3">
-									<%= attachment_image_tag entry.tournament, :image, :fill, 200, 200 %>
+							<div class="row entry-list">
+								<div class="col-lg-6">
+									<%= attachment_image_tag entry.tournament, :image, :fill, 200, 200, fallback:"no-Ludus.png", size:"200x200" %>
 								</div>
-								<div class="col-lg-3">
+								<div class="col-lg-6">
 									<p class="s-result"><%= entry.tournament.name %></p>
 									<p class="s-result"><%= entry.tournament.title.game %></p>
 									<p class="s-result"><%= simple_time(entry.tournament.date) %></p>
@@ -48,17 +61,18 @@
 							</div>
 						<% end %>
 					<% end %>
+					<%= paginate @entry %>
 				</div>
 
 				<!-- 投稿した大会一覧 -->
-				<div id="tab2" class="tab container">
-					<% @user.tournaments.each do |tournament| %>
+				<div id="tab2" class="tab container jscroll jlist">
+					<% @tournament.where(is_completed: true).each do |tournament| %>
 						<%= link_to tournament_path(tournament.id) do %>
-							<div class="row">
-								<div class="col-lg-3">
-							       <%= attachment_image_tag tournament, :image, :fill, 200, 200 %>
+							<div class="row post-list">
+								<div class="col-lg-6">
+							       <%= attachment_image_tag tournament, :image, :fill, 200, 200, fallback:"no-Ludus.png", size:"200x200" %>
 							    </div>
-							    <div class="col-lg-3">
+							    <div class="col-lg-6">
 								    <p class="s-result"><%= tournament.name %></p>
 								    <p class="s-result"><%= tournament.title.game %></p>
 								    <p class="s-result"><%= simple_time(tournament.date) %></p>
@@ -67,19 +81,20 @@
 							</div>
 						<% end %>
 					<% end %>
+					<%= paginate @tournament %>
 				</div>
 
 				<!-- 自分が投稿した大会の個人チャット一覧 -->
-				<div id="tab3" class="tab container">
-					<% @user.tournaments.each do |tournament| %>
+				<div id="tab3" class="tab container jscroll jlist">
+					<% @tournament.each do |tournament| %>
 						<% tournament.rooms.each do |room| %>
 							<%= link_to room_path(room.id) do %>
 									<% room.members.each do |member| %>
-										<div class="row">
-											<div class="col-lg-3">
+										<div class="row myroom-list">
+											<div class="col-lg-6">
 												<%= attachment_image_tag member.user, :icon, :fill, 150, 150, fallback: "no_image.png", size:"200x200", class: "img-circle" %>
 											</div>
-											<div class="col-lg-3">
+											<div class="col-lg-6">
 												<p class="s-result"><%= room.tournament.name %></p>
 												<p class="s-result"><%= member.user.name %></p>
 												<p class="s-result"><%= simple_time(room.updated_at) %></p>
@@ -89,19 +104,47 @@
 							<% end %>
 						<% end %>
 					<% end %>
+					<%= paginate @tournament %>
+				</div>
+
+				<!-- 下書き一覧 -->
+				<div id="tab4" class="tab container jscroll jlist">
+					<% @tournament.where(is_completed: false).each do |tournament| %>
+						<%= link_to tournament_path(tournament.id) do %>
+							<div class="row post-list">
+								<div class="col-lg-6">
+									<%= attachment_image_tag tournament, :image, :fill, 200, 200, fallback:"no-Ludus.png", size:"200x200" %>
+								</div>
+								<div class="col-lg-6">
+									<% if tournament.name != nil %>
+										<p class="s-result"><%= tournament.name %></p>
+									<% end %>
+									<% if tournament.title != nil %>
+										<p class="s-result"><%= tournament.title.game %></p>
+									<% end %>
+									<% if tournament.date != nil %>
+										<p class="s-result"><%= simple_time(tournament.date) %></p>
+									<% end %>
+									<p class="s-result"><%= simple_time(tournament.updated_at) %></p>
+								</div>
+							</div>
+						<% end %>
+					<% end %>
+					<%= paginate @tournament %>
 				</div>
 			</div>
 		</div>
 
 	<% else %>
 
+		<h3>投稿した大会一覧</h3>
 		<!-- 投稿した大会一覧 -->
-		<div class="container">
-			<% @user.tournaments.each do |tournament| %>
+		<div class="container jscroll jlist">
+			<% @tournament.where(is_completed: true).each do |tournament| %>
 				<%= link_to tournament_path(tournament.id) do %>
 					<div class="row">
 						<div class="col-lg-3">
-							<%= attachment_image_tag tournament, :image, :fill, 200, 200 %>
+							<%= attachment_image_tag tournament, :image, :fill, 200, 200, fallback:"no-image.png", size:"200x200" %>
 						</div>
 						<div class="col-lg-3">
 							<p class="s-result"><%= tournament.name %></p>
@@ -112,6 +155,7 @@
 					</div>
 				<% end %>
 			<% end %>
+			<%= paginate @tournament %>
 		</div>
 
 	<% end %>
@@ -126,5 +170,18 @@
 		$(this).addClass("active");
 		$($(this).attr("href")).show();
 		return false;
+	});
+</script>
+
+<script>
+	$(window).on('scroll', function(){
+		scrollHeight = $(document).height();
+		scrollPosition = $(window).height() + $(window).scrollTop();
+		if ( (scrollHeight - scrollPosition) / scrollHeight <= 0.05) {
+				$('.jscroll').jscroll({
+					contentSelector: '.jlist',
+					nextSelector: 'span.next a'
+				});
+		}
 	});
 </script>

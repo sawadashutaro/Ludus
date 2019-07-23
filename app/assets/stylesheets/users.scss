@@ -1,7 +1,7 @@
 // Place all the styles related to the users controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
- 
+
 .wrap{
 	width:90%;
 	max-width: 800px;
@@ -17,7 +17,7 @@
 #tab-menu li{
 	float:left;
 	list-style-type: none;
-	width:30%;
+	width:25%;
 }
 
 #tab-menu a{
@@ -34,6 +34,7 @@
 }
 #tab-contents .tab{
 	padding:30px;
+	padding-top: 0;
 	background:#fff;
 	border-top:none;
 }
@@ -49,4 +50,55 @@
 
 .tab:hover{
 	text-decoration: none;
+}
+.uname{
+	border:1.5px solid #ccc;
+	border-radius: 3px;
+	width:40%;
+	padding:5px;
+}
+.mygood{
+	margin-top:30px;
+}
+.entry-list{
+	margin: 0 auto;
+	margin-top:30px;
+	padding-bottom: 30px;
+	border-bottom: 2px solid #ccc;
+	width:50%;
+}
+.post-list{
+	margin: 0 auto;
+	margin-top: 30px;
+	padding-bottom: 30px;
+	border-bottom: 2px solid #ccc;
+	width:50%;
+}
+.myroom-list{
+	margin:0 auto;
+	margin-top: 30px;
+	padding-bottom: 30px;
+	border-bottom:2px solid #ccc;
+	width:50%;
+}
+.ubody{
+	width:70%;
+	margin:0 auto;
+	margin-bottom: 20px;
+}
+
+.show-contents{
+	width:80%;
+	margin:0 auto;
+}
+
+.jlist{
+	padding:0;
+}
+nav.pagination{
+	display:none;
+}
+
+.show-btns{
+	margin-left: 15px;
 }

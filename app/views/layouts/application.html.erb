@@ -10,29 +10,42 @@
     <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
   </head>
 
+  <div id="loader-bg">
+    <div id="loading">
+        <%= image_tag "Ludus_logo2.png" %>
+    </div>
+</div>
+
   <body>
     <header>
       <nav>
-          <div class="logo"></div>
+        <div class="logo">
+          <%= link_to tournaments_path do %>
+            <%= image_tag "Ludus_logo2.png" %>
+          <% end %>
+        </div>
       </nav>
-      <ul>
+
+      <div>
         <% if user_signed_in? %>
 
-          <li>
+          <div class="h-icon">
             <%= link_to user_path(current_user.id) do %>
-             <%= attachment_image_tag @user, :icon, fallback: "no_image.png", size:"60x60", class:"img-circle" %>
+             <%= attachment_image_tag current_user, :icon, fallback: "no_image.png", size:"60x60", class:"img-circle" %>
             <% end %>
-          </li>
+          </div>
+          <%= hidden_field :user, :user, class:"current_user", value:current_user.id %>
 
         <% else %>
 
-          <li><%= link_to "新規登録", new_user_registration_path %></li>
-          <span>|</span>
-          <li><%= link_to "ログイン", new_user_session_path %></li>
+          <div class="btn btn-top h-menu">
+            <%= link_to "新規登録", new_user_registration_path, class:"h-btn" %><span> ・ </span><%= link_to "ログイン", new_user_session_path, class:"h-btn" %>
+          </div>
 
         <% end %>
-      </ul>
+      </div>
     </header>
+    <div class="box"></div>
     <%= yield %>
   </body>
 </html>

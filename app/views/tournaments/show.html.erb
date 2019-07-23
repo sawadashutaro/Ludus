@@ -1,77 +1,142 @@
+<div class="show-body">
+  <% if @tournament.user_id == current_user.id %>
+  <h4>チャットルーム一覧</h4>
+  <div class="room-list">
+    <% @tournament.members.each do |member| %>
+      <div class="rlist-contents">
+        <%= link_to room_path(member.room) do %>
+          <div>
+            <%= attachment_image_tag member.user, :icon, fallback:"no_image.png", size:"40x40", class:"img-circle room-link" %>
+            <span class="room-link"><%= member.user.name %></span>
+            <% end %>
+          </div>
+      </div>
+    <% end %>
+  </div>
+  <% end %>
 <div class="tbody">
 
 <p id="notice"><%= notice %></p>
 
- <%= attachment_image_tag @tournament, :image, :fill, 600, 400 %>
+ <%= attachment_image_tag @tournament, :image, :cover, 600, 400, class:"show-h", fallback:"no-Ludus.png", size:"600x400" %>
 
- <div class="entry_box">
-   <p>エントリー人数</p>
-   <!-- エントリーしていないならエントリーボタン、しているなら削除ボタンを設置 -->
-   <%= render partial: "entries/entry", locals: {tournament: @tournament} %>
- </div>
+
+
+<% if @tournament.name != nil %>
+ <h1 class="show-h show-n"><%= @tournament.name %></h1>
+<% end %>
+
+<% if @tournament.title != nil %>
+  <h2 class="show-h show-g"><%= @tournament.title.game %></h2>
+<% end %>
+
+  <%= link_to user_path(@tournament.user.id) do %>
+  <h3><%= attachment_image_tag @tournament.user, :icon, :fill, 50, 50, class:"img-circle", fallback:"no_image.png", size:"50x50" %><% end %><%= @tournament.user.name %></h3>
+
+
+  <p class="show-contents">
+    <strong>開催予定日時:</strong>
+    <% if @tournament.date != nil %>
+      <p class="show-form"><%= simple_time(@tournament.date) %></p>
+    <% end %>
+  </p>
+
+
+
+  <p class="show-contents">
+    <strong>上限人数:</strong>
+    <% if @tournament.maximum != nil %>
+    <div class="show-form"><%= @tournament.maximum %>
+    <span>人</span></div>
+    <% end %>
+  </p>
+
+
+<p class="show-contents">
+  <strong>詳細:</strong>
+  <p class="show-form shousai"><%= @tournament.detail %></p>
+</p>
+
+
+<% if @tournament.address != nil %>
+
+<p class="show-contents"><strong>開催地</strong></p>
+
+<div id=map></div>
+
+<script type="text/javascript">
+  function initMap(){
+    var test = {lat: <%= @tournament.latitude %>, lng: <%= @tournament.longitude %>};
+    var map = new google.maps.Map(document.getElementById('map'), {
+      zoom: 15,
+      center: test
+    });
+    var transitLayer = new google.maps.TransitLayer();
+    transitLayer.setMap(map);
+
+    var contentString = '住所：<%= @tournament.address %>';
+    var infowindow = new google.maps.InfoWindow({
+      content: contentString
+    });
+
+    var marker = new google.maps.Marker({
+      position:test,
+
+      map: map,
+      title: contentString
+    });
+    marker.addListener('click', function(){
+      infowindow.open(map, marker);
+    });
+  }
+</script>
+<script async defer
+    src="https://maps.googleapis.com/maps/api/js?v=3.exp&key=AIzaSyCE-ffQx828zkd1oHpOF9z5QZaiv38zeH8&callback=initMap"></script>
+
+  <% end %>
+
+</div>
+
+<div class="side-box">
+
+  <% if @tournament.is_completed != false %>
+   <div class="entry_box">
+     <p>エントリー人数</p>
+     <!-- エントリーしていないならエントリーボタン、しているなら削除ボタンを設置 -->
+     <%= render partial: "entries/entry", locals: {tournament: @tournament} %>
+   </div>
+ <% end %>
 
  <div class="room_box d_room_box">
    <% if @tournament.user_id == current_user.id %>
-    <%= link_to "大会編集", edit_tournament_path(@tournament), class:"btn btn-info" %>
+    <%= link_to "大会編集", edit_tournament_path(@tournament), class:"btn btn-info btn-lg chat-btn" %>
    <% elsif @tournament.members.where(user_id: current_user.id).exists? %>
-    <%= link_to "開催者とチャット", room_path(@d_room.id), class:"btn btn-info" %>
+    <%= link_to "開催者とチャット", room_path(@d_room.id), class:"btn btn-info btn-lg chat-btn" %>
    <% else %>
     <%= form_for Room.new, url:rooms_path do |f| %>
     <%= f.hidden_field :tournament_id, value:@tournament.id %>
-    <%= f.submit "開催者とチャット", class:"btn btn-info" %>
+    <%= f.submit "開催者とチャット", class:"btn btn-info btn-lg chat-btn" %>
     <% end %>
    <% end %>
  </div>
 
+<% if @open_room != nil %>
  <div class="room_box open_room_box">
-   <%= link_to "グループチャット", room_path(@open_room.id), class:"btn btn-warning" %>
+   <%= link_to "グループチャット", room_path(@open_room.id), class:"btn btn-warning btn-lg chat-btn" %>
  </div>
+ <% end %>
 
  <div class="good_box">
    <%= render partial: "goods/good", locals: {tournament: @tournament} %>
  </div>
 
- <h2><%= @tournament.name %></h2>
+ <% if @tournament.user_id == current_user.id %>
+   <div class="room_box">
+     <%= link_to "削除", tournament_path(@tournament), method: :delete, class:"btn btn-danger btn-lg chat-btn" %>
+   </div>
+ <% end %>
+</div>
 
 
-  <h3><%= @tournament.title.game %></h3>
 
-<p>
-  <strong>開催予定日時:</strong>
-  <%= simple_time(@tournament.date) %>
-</p>
-
-<p>
-  <strong>上限人数:</strong>
-  <%= @tournament.maximum %>
-  <span>人</span>
-</p>
-
-<p>
-  <strong>Address:</strong>
-  <%= @tournament.address %>
-</p>
-
-<p>
-  <strong>詳細:</strong>
-  <%= @tournament.detail %>
-</p>
-
-<p>
-  <strong>User:</strong>
-  <%= @tournament.user_id %>
-</p>
-
-<p>
-  <strong>Is deleted:</strong>
-  <%= @tournament.is_deleted %>
-</p>
-
-<p>
-  <strong>Is completed:</strong>
-  <%= @tournament.is_completed %>
-</p>
-
-<%= link_to 'Edit', edit_tournament_path(@tournament) %> |
-<%= link_to 'Back', tournaments_path %>
 </div>

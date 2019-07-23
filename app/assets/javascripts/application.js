@@ -13,6 +13,39 @@
 //= require jquery
 //= require rails-ujs
 //= require activestorage
-//= require turbolinks
 //= require bootstrap-sprockets
+//= require jquery.jscroll.min.js
 //= require_tree .
+
+jQuery(window).load(function(){
+	$('.bxslider').bxSlider({
+		auto: true,
+		speed: 1000,
+		moveSlide: 1,
+		pause: 6000,
+		minSlides: 5,
+		maxSlides: 5,
+		slideWidth: 250,
+		randomStart: true,
+		autoHover: true,
+		touchEnabled: false
+	});
+});
+
+window.onload = function(){
+	$(function(){
+		$("#loading").fadeOut();
+	});
+}
+
+$(function(){
+	var h = $(window).height();
+	$("#contents").css("display", "none");
+	$("#loader-bg ,#loader").height(h).css("display","block");
+});
+
+$(window).load(function(){
+	$("#loader-bg").delay(900).fadeOut(800);
+	$("#loader").delay(600).fadeOut(300);
+	$("#contents").css("display", "block");
+});
