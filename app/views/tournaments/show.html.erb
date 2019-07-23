@@ -1,30 +1,56 @@
 <div class="show-body">
+  <% if @tournament.user_id == current_user.id %>
+  <h4>チャットルーム一覧</h4>
+  <div class="room-list">
+    <% @tournament.members.each do |member| %>
+      <div class="rlist-contents">
+        <%= link_to room_path(member.room) do %>
+          <div>
+            <%= attachment_image_tag member.user, :icon, fallback:"no_image.png", size:"40x40", class:"img-circle room-link" %>
+            <span class="room-link"><%= member.user.name %></span>
+            <% end %>
+          </div>
+      </div>
+    <% end %>
+  </div>
+  <% end %>
 <div class="tbody">
 
 <p id="notice"><%= notice %></p>
 
- <%= attachment_image_tag @tournament, :image, :fill, 600, 400, class:"show-h" %>
+ <%= attachment_image_tag @tournament, :image, :cover, 600, 400, class:"show-h", fallback:"no-Ludus.png", size:"600x400" %>
 
 
 
+<% if @tournament.name != nil %>
  <h1 class="show-h show-n"><%= @tournament.name %></h1>
+<% end %>
 
-
+<% if @tournament.title != nil %>
   <h2 class="show-h show-g"><%= @tournament.title.game %></h2>
+<% end %>
 
   <%= link_to user_path(@tournament.user.id) do %>
-  <h3><%= attachment_image_tag @tournament.user, :icon, :fill, 50, 50, class:"img-circle" %><% end %><%= @tournament.user.name %></h3>
+  <h3><%= attachment_image_tag @tournament.user, :icon, :fill, 50, 50, class:"img-circle", fallback:"no_image.png", size:"50x50" %><% end %><%= @tournament.user.name %></h3>
 
-<p class="show-contents">
-  <strong>開催予定日時:</strong>
-  <p class="show-form"><%= simple_time(@tournament.date) %></p>
-</p>
 
-<p class="show-contents">
-  <strong>上限人数:</strong>
-  <div class="show-form"><%= @tournament.maximum %>
-  <span>人</span></div>
-</p>
+  <p class="show-contents">
+    <strong>開催予定日時:</strong>
+    <% if @tournament.date != nil %>
+      <p class="show-form"><%= simple_time(@tournament.date) %></p>
+    <% end %>
+  </p>
+
+
+
+  <p class="show-contents">
+    <strong>上限人数:</strong>
+    <% if @tournament.maximum != nil %>
+    <div class="show-form"><%= @tournament.maximum %>
+    <span>人</span></div>
+    <% end %>
+  </p>
+
 
 <p class="show-contents">
   <strong>詳細:</strong>
@@ -72,11 +98,14 @@
 </div>
 
 <div class="side-box">
- <div class="entry_box">
-   <p>エントリー人数</p>
-   <!-- エントリーしていないならエントリーボタン、しているなら削除ボタンを設置 -->
-   <%= render partial: "entries/entry", locals: {tournament: @tournament} %>
- </div>
+
+  <% if @tournament.is_completed != false %>
+   <div class="entry_box">
+     <p>エントリー人数</p>
+     <!-- エントリーしていないならエントリーボタン、しているなら削除ボタンを設置 -->
+     <%= render partial: "entries/entry", locals: {tournament: @tournament} %>
+   </div>
+ <% end %>
 
  <div class="room_box d_room_box">
    <% if @tournament.user_id == current_user.id %>
@@ -91,9 +120,11 @@
    <% end %>
  </div>
 
+<% if @open_room != nil %>
  <div class="room_box open_room_box">
    <%= link_to "グループチャット", room_path(@open_room.id), class:"btn btn-warning btn-lg chat-btn" %>
  </div>
+ <% end %>
 
  <div class="good_box">
    <%= render partial: "goods/good", locals: {tournament: @tournament} %>
@@ -105,4 +136,7 @@
    </div>
  <% end %>
 </div>
+
+
+
 </div>

@@ -1,7 +1,7 @@
 // Place all the styles related to the users controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
- 
+
 .wrap{
 	width:90%;
 	max-width: 800px;
@@ -17,7 +17,7 @@
 #tab-menu li{
 	float:left;
 	list-style-type: none;
-	width:30%;
+	width:25%;
 }
 
 #tab-menu a{
@@ -61,37 +61,44 @@
 	margin-top:30px;
 }
 .entry-list{
+	margin: 0 auto;
 	margin-top:30px;
 	padding-bottom: 30px;
 	border-bottom: 2px solid #ccc;
 	width:50%;
 }
 .post-list{
+	margin: 0 auto;
 	margin-top: 30px;
 	padding-bottom: 30px;
 	border-bottom: 2px solid #ccc;
 	width:50%;
 }
 .myroom-list{
+	margin:0 auto;
 	margin-top: 30px;
 	padding-bottom: 30px;
 	border-bottom:2px solid #ccc;
 	width:50%;
 }
-
-.true-box{
-	border:2px solid #66F0FF;
-	border-radius: 3px;
-	margin-top:15px;
-	margin-bottom: 15px;
-	padding-top:15px;
-	padding-bottom: 15px;
+.ubody{
+	width:70%;
+	margin:0 auto;
+	margin-bottom: 20px;
 }
-.false-box{
-	border:2px solid #ccc;
-	border-radius:3px;
-	margin-top:15px;
-	margin-bottom: 15px;
-	padding-top:15px;
-	padding-bottom: 15px;
+
+.show-contents{
+	width:80%;
+	margin:0 auto;
+}
+
+.jlist{
+	padding:0;
+}
+nav.pagination{
+	display:none;
+}
+
+.show-btns{
+	margin-left: 15px;
 }

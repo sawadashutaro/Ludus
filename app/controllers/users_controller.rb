@@ -1,6 +1,8 @@
 class UsersController < ApplicationController
   def show
   	@user = User.find(params[:id])
+    @tournament = Tournament.where(user_id: @user.id).page(params[:page]).per(5)
+    @entry = Entry.where(user_id: @user.id).page(params[:page]).per(5)
   	@total_good = 0
   	@user.tournaments.each do |tournament|
   		@total_good += Good.where(tournament_id: tournament.id).count

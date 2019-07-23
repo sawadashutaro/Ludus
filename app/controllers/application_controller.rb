@@ -3,6 +3,6 @@ class ApplicationController < ActionController::Base
 
 	def set_search
 		@search = Tournament.ransack(params[:q])
-		@search_tournament = @search.result.includes(:title)
+		@search_tournament = @search.result.includes(:title).page(params[:page]).per(5)
 	end
 end

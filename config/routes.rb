@@ -7,7 +7,7 @@ Rails.application.routes.draw do
   	resource :goods, only: [:create, :destroy]
   end
 
-  get 'tournaments/search' => 'tournaments#search'
+  get 'tournaments/search/search' => 'tournaments#search'
 
   devise_for :users, controllers: { omniauth_callback: "users/omniauth_callbacks"}
   devise_scope :user do

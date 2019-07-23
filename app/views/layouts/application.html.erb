@@ -10,12 +10,22 @@
     <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
   </head>
 
+  <div id="loader-bg">
+    <div id="loading">
+        <%= image_tag "Ludus_logo2.png" %>
+    </div>
+</div>
+
   <body>
     <header>
       <nav>
-          <div class="logo"></div>
+        <div class="logo">
+          <%= link_to tournaments_path do %>
+            <%= image_tag "Ludus_logo2.png" %>
+          <% end %>
+        </div>
       </nav>
-      
+
       <div>
         <% if user_signed_in? %>
 
@@ -24,10 +34,13 @@
              <%= attachment_image_tag current_user, :icon, fallback: "no_image.png", size:"60x60", class:"img-circle" %>
             <% end %>
           </div>
+          <%= hidden_field :user, :user, class:"current_user", value:current_user.id %>
 
         <% else %>
 
-          <%= link_to "新規登録", new_user_registration_path %><span>|</span><%= link_to "ログイン", new_user_session_path %>
+          <div class="btn btn-top h-menu">
+            <%= link_to "新規登録", new_user_registration_path, class:"h-btn" %><span> ・ </span><%= link_to "ログイン", new_user_session_path, class:"h-btn" %>
+          </div>
 
         <% end %>
       </div>
