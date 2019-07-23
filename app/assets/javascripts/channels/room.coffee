@@ -12,7 +12,7 @@ App.room = App.cable.subscriptions.create { channel: "RoomChannel", room_id: roo
     @perform 'speak', message: message
 
   received: (data) ->
-    $('#messages').append data['message'].render
+    $('#messages').prepend data['message'].render
     changeClass(data)
     return
 
@@ -27,7 +27,7 @@ App.room = App.cable.subscriptions.create { channel: "RoomChannel", room_id: roo
 changeClass = (data)->
   current = $('.current_user').val()
   if String(data.message.user) != $('.current_user').val()
-    lastContent = $('.mymessage:last')
+    lastContent = $('.mymessage:first')
     lastContent.find(".mymessage").removeClass('mymessage').addClass('message')
     lastContent.find(".mychat-face").removeClass('mychat-face').addClass('chat-face')
     lastContent.find(".mychat-name").removeClass('mychat-name').addClass('chat-name')
