@@ -1,0 +1,73 @@
+<div class="tbody">
+
+  <h2>大会編集</h2>
+
+  <%= form_for(@tournament) do |f| %>
+
+    <% if @tournament.errors.any? %>
+      <div id="error_explanation" class="alert alert-danger">
+        <h2><%= @tournament.errors.count %>件のエラーが発生しました。</h2>
+        <ul>
+          <% @tournament.errors.full_messages.each do |message| %>
+          <li><%= message %></li>
+          <% end %>
+        </ul>
+      </div>
+    <% end %>
+
+    <div class="n-name">
+      <h4>大会名</h4>
+      <%= f.text_field :name, class:"form-control", size:"10" %>
+    </div>
+
+    <h4>イメージ画像</h4>
+    <div class="input-group">
+      <label class="input-group-btn">
+        <span class="btn btn-warning">
+          画像を選択してください
+          <%= f.attachment_field :image, style:"display:none", class:"thumbnail" %>
+        </span>
+      </label>
+      <input type="text" class="form-control" readonly="">
+    </div>
+
+    <div class="date">
+      <h4>開催日時</h4>
+      <%= f.datetime_field :date, class:"form-control" %>
+      <p>※時間まで入力してください</p>
+    </div>
+
+    <div class="maxi">
+      <h4>上限人数</h4>
+      <%= f.number_field :maximum, min:"1", class:"form-control" %>
+    </div>
+
+    <h4>ゲーム選択</h4>
+    <%= f.select :title_id, Title.all.map{|t| [t.game, t.id]}, include_blank:"選択してください", size:"100x100" %>
+
+    <div class="add">
+      <h4>開催住所</h4>
+      <%= f.text_field :address, class:"form-control" %>
+    </div>
+
+    <h4>詳細</h4>
+    <%= f.text_area :detail, size:"50x7", class:"form-control" %>
+
+    <div class="button-t">
+      <%= f.submit "更新", class:"btn btn-info btn-lg" %>
+      <%= f.submit "下書き", class:"btn btn-default btn-lg", name:"preview" %>
+      <span>※下書きのものはマイページの一覧にのみ表示されます</span>
+    </div>
+
+  <% end %>
+</div>
+
+<!-- 選択されたファイル名を表示 -->
+<script>
+  $(document).on("change", ".thumbnail", function(){
+    var input= $(this),
+    numFiles = input.get(0).files ? input.get(0).files.length : 1,
+    label = input.val().replace(/\\/g, "/").replace(/.*\//, "");
+    input.parent().parent().next(":text").val(label);
+  });
+</script>

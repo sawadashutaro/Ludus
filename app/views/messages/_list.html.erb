@@ -1,0 +1,32 @@
+<% messages.each do |message| %>
+			<% if message.user_id == current_user.id %>
+				<div class="mymessage">
+					<%= link_to user_path(message.user_id) do %>
+						<div class="mychat-face">
+							<%= attachment_image_tag message.user, :icon, fallback: "/images/no_image.png", size: "80x80", class:"img-circle" %>
+							<div class="mychat-name"><%= "#{message.user.name}" %></div>
+						</div>
+					<% end %>
+					<div class="mychat-area">
+						<div class="mychat-hukidashi">
+							<%= "#{message.chat}" %>
+						</div>
+					</div>
+				</div>
+			<% else %>
+				<div class="message">
+					<%= link_to user_path(message.user_id) do %>
+						<div class="chat-face">
+							<%= attachment_image_tag message.user, :icon, fallback: "/images/no_image.png", size: "80x80", class:"img-circle" %>
+							<div class="chat-name"><%= "#{message.user.name}" %></div>
+						</div>
+					<% end %>
+					<div class="chat-area">
+						<div class="chat-hukidashi">
+							<%= "#{message.chat}" %>
+						</div>
+					</div>
+				</div>
+			<% end %>
+		<% end %>
+		<%= paginate messages %>

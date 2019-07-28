@@ -1,0 +1,105 @@
+// Place all the styles related to the users controller here.
+// They will automatically be included in application.css.
+// You can use Sass (SCSS) here: http://sass-lang.com/
+
+.wrap{
+	width:90%;
+	max-width: 800px;
+	margin: 0 auto;
+}
+
+.clearfix:after{
+	content:"";
+	clear:both;
+	display: block;
+}
+
+#tab-menu li{
+	float:left;
+	list-style-type: none;
+	width:25%;
+}
+
+#tab-menu a{
+	color:#ccc;
+	text-decoration: none;
+	display: block;
+	padding:20px;
+	text-align: center;
+	border-bottom: 1px solid #ccc;
+}
+#tab-menu .active{
+	color:#555;
+	border-bottom: 3px solid #999;
+}
+#tab-contents .tab{
+	padding:30px;
+	padding-top: 0;
+	border-top:none;
+}
+#tab-contents p{
+	color:#000;
+	line-height: 2.5;
+}
+
+.myicon{
+	width:300px;
+	margin:0 auto;
+}
+
+.tab:hover{
+	text-decoration: none;
+}
+.uname{
+	border:1.5px solid #ccc;
+	border-radius: 3px;
+	display: inline-block;
+	min-width:40%;
+	padding:5px;
+}
+
+.entry-list{
+	width:50%;
+	margin: 0 auto;
+	margin-top:30px;
+	padding-bottom: 30px;
+	border-bottom: 2px solid #ccc;
+}
+.post-list{
+	margin: 0 auto;
+	margin-top: 30px;
+	padding-bottom: 30px;
+	border-bottom: 2px solid #ccc;
+	width:50%;
+}
+.myroom-list{
+	margin:0 auto;
+	margin-top: 30px;
+	padding-bottom: 30px;
+	border-bottom:2px solid #ccc;
+	width:50%;
+}
+.ubody{
+	width:70%;
+	margin:0 auto;
+	margin-bottom: 20px;
+	background-color: #fff;
+	padding-top: 30px;
+}
+
+.show-contents{
+	width:80%;
+	margin:0 auto;
+}
+
+.jlist{
+	padding:0;
+}
+nav.pagination{
+	display:none;
+}
+
+.show-btns{
+	margin-left: 15px;
+}
+

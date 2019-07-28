@@ -1,0 +1,26 @@
+ja:
+  activerecord:
+    models:
+      user: ユーザー
+      tournament: 大会
+      title: ゲーム
+    attributes:
+      user:
+          name: ユーザー名
+          email: メールアドレス
+          icon_id: アイコン
+          password: パスワード
+          password_confirmation: 確認用パスワード
+          remember_me: 次回から自動的にログイン
+      tournament:
+                name: 大会名
+                date: 開催日時
+                address: 開催地
+                detail: 詳細
+                maximum: 上限人数
+                title: 使用するゲーム
+                image_id: サムネイル画像
+                latitude: 緯度
+                longitude: 経度
+      title:
+          game: ゲーム名

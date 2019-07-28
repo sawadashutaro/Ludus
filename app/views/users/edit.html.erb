@@ -1,0 +1,54 @@
+<div class="tbody">
+
+	<h1>プロフィール編集</h1>
+	<p><%= notice %></p>
+	<%= form_for(@user) do |f| %>
+
+	    <% if @user.errors.any? %>
+	      <div id="error_explanation">
+	        <h2><%= @user.errors.count %>件のエラーが発生しました。</h2>
+	        <ul>
+	          <% @user.errors.full_messages.each do |message| %>
+	          <li><%= message %></li>
+	          <% end %>
+	        </ul>
+	      </div>
+	    <% end %>
+
+	    <h4>ユーザー名</h4>
+	    <%= f.text_field :name, class:"form-control", size:"10" %>
+
+	    <h4>アイコン画像</h4>
+		<div class="input-group">
+		    <label class="input-group-btn">
+		      <span class="btn btn-warning">
+		        画像を選択してください
+		        <%= f.attachment_field :icon, style:"display:none", class:"thumbnail" %>
+		      </span>
+		    </label>
+		    <input type="text" class="form-control" readonly="">
+		</div>
+
+		<h4>メールアドレス</h4>
+		<%= f.email_field :email, class:"form-control", size:"10" %>
+
+		<h4>パスワード(6文字以上)</h4>
+		<%= f.password_field :password, class:"form-control", size:"10" %>
+
+		<h4>変更パスワード再入力</h4>
+		<%= f.password_field :password_confirmation, class:"form-control", size:"10" %>
+
+		<%= f.submit "更新", class:"btn btn-success" %>
+
+	<% end %>
+</div>
+
+<!-- 選択されたファイル名を表示 -->
+<script>
+  $(document).on("change", ".thumbnail", function(){
+    var input= $(this),
+    numFiles = input.get(0).files ? input.get(0).files.length : 1,
+    label = input.val().replace(/\\/g, "/").replace(/.*\//, "");
+    input.parent().parent().next(":text").val(label);
+  });
+</script>

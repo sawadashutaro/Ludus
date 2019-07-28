@@ -1,0 +1,13 @@
+<div class="mymessage">
+	<%= link_to user_path(message.user.id) do %>
+		<div class="mychat-face">
+			<%= attachment_image_tag message.user, :icon, fallback: "/images/no_image.png", size: "80x80", class:"img-circle" %>
+			<div class="mychat-name"><%= "#{message.user.name}" %></div>
+		</div>
+	<% end %>
+	<div class="mychat-area">
+		<div class="mychat-hukidashi">
+			<%= "#{message.chat}" %>
+		</div>
+	</div>
+</div>

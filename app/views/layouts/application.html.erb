@@ -5,11 +5,72 @@
     <%= csrf_meta_tags %>
     <%= csp_meta_tag %>
 
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.0.13/css/all.css" >
     <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
     <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
   </head>
 
+  <div id="loader-bg">
+    <div id="loading">
+        <%= image_tag "/images/Ludus_logo2.png" %>
+    </div>
+  </div>
+
+<div class="sign-body">
+</div>
+
+<div class="sign-contents">
+    <h3 class="sign-topic">新規登録・ログイン</h3>
+    <div class="sign-btn"><%= link_to "新規登録", new_user_registration_path, class:"btn btn-info btn-block" %></div>
+    <div class="sign-btn"><%= link_to "ログイン", new_user_session_path, class:"btn btn-success btn-block" %></div>
+    <div class="cancel-line"><a class="cancel" href="javascript:void(0)">キャンセル</a></div>
+  </div>
+
   <body>
+    <div class="cursor"></div>
+    <header>
+      <nav>
+        <div class="logo">
+          <%= link_to tournaments_path do %>
+            <%= image_tag "/images/Ludus_logo2.png" %>
+          <% end %>
+        </div>
+      </nav>
+
+      <div>
+        <% if user_signed_in? %>
+
+<!--           エントリー済みの大会の中に24h以内に開催されるものがあった場合、キラキラする
+ -->        <div class="h-icon">
+              <%= link_to user_path(current_user.id) do %>
+              <!-- Googleアカウントでログインしてるかで条件分岐（refileで投稿してないからidがurlになってる） -->
+                <% if current_user.is_google != true %>
+                  <%= attachment_image_tag current_user, :icon, fallback: "/images/no_image.png", size:"60x60", class:"img-circle" %>
+                <% else %>
+                  <img src="<%= current_user.icon_id %>" class="img-circle" width="60" height="60">
+                <% end %>
+              <% end %>
+              <% current_user.entries.each do |entry| %>
+                <% if (entry.tournament.date - @time) < 1.day %>
+                  <div class="star star-1"></div>
+                  <div class="star star-2"></div>
+                  <div class="star star-3"></div>
+                  <div class="star star-4"></div>
+                <% end %>
+              <% end %>
+            </div>
+          <%= hidden_field :user, :user, class:"current_user", value:current_user.id %>
+
+        <% else %>
+
+          <div class="btn btn-top h-menu">
+            <div>新規登録<span> ・ </span>ログイン</div>
+          </div>
+
+        <% end %>
+      </div>
+    </header>
+    <div class="box"></div>
     <%= yield %>
   </body>
 </html>

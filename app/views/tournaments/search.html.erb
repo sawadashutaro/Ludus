@@ -1,0 +1,48 @@
+<div class="tbody">
+
+  <div class="container">
+    <div class="row">
+      <div class="col-lg-4"><h2>検索結果</h2></div>
+      <div class="col-lg-4">
+        <dl class="searchbox">
+          <%= search_form_for @search, url: tournaments_search_search_path do |f| %>
+            <dt><%= f.text_field :name_or_title_game_cont ,placeholder: "\uf002 大会名、ゲーム名で検索", class:"fa" %></dt>
+            <dd><%= f.submit ("検索"), class:"search-btn" %></dd>
+          <% end %>
+        </dl>
+      </div>
+    </div>
+  </div>
+
+  <div class="container jscroll jlist search-list">
+    <% @search_tournament.where(is_completed: true).each do |tournament| %>
+      <%= link_to tournament_path(tournament.id) do %>
+        <div class="row entry-list">
+          <div class="col-lg-6">
+            <%= attachment_image_tag tournament, :image, :fill, 200, 200, fallback:"/images/no-Ludus2.png", size:"200x200" %>
+          </div>
+          <div class="col-lg-4 s-list">
+            <p class="s-result"><%= tournament.name %></p>
+            <p class="s-result"><%= tournament.title.game %></p>
+            <p class="s-result"><%= simple_time(tournament.date) %></p>
+            <p class="s-result"><%= tournament.entries.count %><span>/</span><%= tournament.maximum %></p>
+          </div>
+        </div>
+      <% end %>
+    <% end %>
+    <%= paginate @search_tournament %>
+  </div>
+</div>
+
+<script>
+  $(window).on('scroll', function(){
+    scrollHeight = $(document).height();
+    scrollPosition = $(window).height() + $(window).scrollTop();
+    if ( (scrollHeight - scrollPosition) / scrollHeight <= 0.05) {
+        $('.jscroll').jscroll({
+          contentSelector: '.jlist',
+          nextSelector: 'span.next a'
+        });
+    }
+  });
+</script>
