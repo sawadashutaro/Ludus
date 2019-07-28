@@ -1,5 +1,6 @@
 Rails.application.routes.draw do
-  root to: 'homes#top'
+  devise_for :admins
+  root to: 'tournaments#index'
 
   get 'homes/top' => 'homes#top'
   resources :tournaments do
@@ -9,7 +10,7 @@ Rails.application.routes.draw do
 
   get 'tournaments/search/search' => 'tournaments#search'
 
-  devise_for :users, controllers: { omniauth_callback: "users/omniauth_callbacks"}
+  devise_for :users, controllers: { omniauth_callbacks: "users/omniauth_callbacks"}
   devise_scope :user do
     root :to => "tournaments#index"
   end

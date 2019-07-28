@@ -15,11 +15,17 @@ class TournamentsController < ApplicationController
   # GET /tournaments/1.json
   def show
     @tournament = Tournament.find(params[:id])
+    @total_good = 0
+    @tournament.user.tournaments.each do |tournament|
+      @total_good += Good.where(tournament_id: tournament.id).count
+    end
     @open_room = Room.find_by(tournament_id: @tournament.id, is_opened: "true")
-    if  @tournament.members.where(user_id: current_user.id).exists?
-      @d_room = Room.includes(:members).joins(:members).find_by(tournament_id: @tournament.id, members: {user_id: current_user.id } )
-    else
-      @d_room = Room.new
+    if user_signed_in?
+      if  @tournament.members.where(user_id: current_user.id).exists?
+        @d_room = Room.includes(:members).joins(:members).find_by(tournament_id: @tournament.id, members: {user_id: current_user.id } )
+      else
+        @d_room = Room.new
+      end
     end
   end
 
@@ -39,6 +45,7 @@ class TournamentsController < ApplicationController
     @tournament = Tournament.new(tournament_params)
     @tournament.user_id = current_user.id
 
+    # 下書きだったらバリデーション無視
     if params[:preview] != nil
       @tournament.is_completed = false
       @tournament.save!(validate: false)

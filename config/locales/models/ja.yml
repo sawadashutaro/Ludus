@@ -10,6 +10,8 @@ ja:
           email: メールアドレス
           icon_id: アイコン
           password: パスワード
+          password_confirmation: 確認用パスワード
+          remember_me: 次回から自動的にログイン
       tournament:
                 name: 大会名
                 date: 開催日時

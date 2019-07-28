@@ -1,8 +1,42 @@
-<div class="tbody">
+<!-- ログインしていなかったらTopを表示する -->
+<% unless user_signed_in? %>
+  <div class="top">
+    <div class="top-body container">
+      <div class="row">
+        <ul class="slick-top l-slick top-slick">
+          <li><%= image_tag "/images/two-guys.jpg", class:"image-size-t left-image" %></li>
+          <li><%= image_tag "/images/football-game.jpg", class:"image-size-t left-image" %></li>
+        </ul>
+        <ul class="slick-top r-slick top-slick">
+          <li><%= image_tag "/images/smart.jpg", class:"image-size-t right-image" %></li>
+          <li><%= image_tag "/images/game-girl.jpg", class:"image-size-t right-image" %></li>
+        </ul>
+      </div>
+      <div class="logo-position">
+        <%= image_tag "/images/Ludus_logo2.png", class:"image-size-l" %>
+        <p>Ludusは個人でのゲーム大会運営を応援するサイトです！</p>
+      </div>
+      <div class="row">
+        <ul class="slick-top l-slick bottom-slick">
+          <li><%= image_tag "/images/driving.jpg", class:"image-size-t left-image" %></li>
+          <li><%= image_tag "/images/friends.jpg", class:"image-size-t left-image" %></li>
+        </ul>
+        <button class="btn btn-warning btn-lg top-btn">CLICK</button>
+        <ul class="slick-top r-slick bottom-slick">
+          <li><%= image_tag "/images/children.jpg", class:"image-size-t right-image" %></li>
+          <li><%= image_tag "/images/hards.jpg", class:"image-size-t right-image" %></li>
+        </ul>
+      </div>
+    </div>
+  </div>
+<% end %>
+
+<div class="tbody-i">
 
   <div class="container">
     <div class="row">
-      <div class="col-lg-5"><h1>大会一覧</h1></div>
+      <div class="col-lg-2"></div>
+      <div class="col-lg-4"><h1>大会一覧</h1></div>
         <div class="col-lg-4">
            <dl class="searchbox">
              <%= search_form_for @search, url: tournaments_search_search_path do |f| %>
@@ -17,20 +51,20 @@
   <p id="notice"><%= notice %></p>
 
   <ul class="slick-box">
-    <li><%= image_tag 'no-image.png', size:"500x400" %></li>
-    <li><%= image_tag 'no-image.png', size:"500x400" %></li>
-    <li><%= image_tag 'no-image.png', size:"500x400" %></li>
-    <li><%= image_tag 'no-image.png', size:"500x400" %></li>
+    <li class="show-image"><%= image_tag '/images/hearthstone.jpg', class:"image-size-i" %></li>
+    <li class="show-image"><%= image_tag '/images/League-of-Legends.jpg', class:"image-size-i" %></li>
+    <li class="show-image"><%= image_tag '/images/no-Ludus2.png', class:"image-size-i" %></li>
+    <li class="show-image"><%= image_tag '/images/no-Ludus2.png', class:"image-size-i" %></li>
   </ul>
 
   <% @titles.each do |title| %>
-    <div>
+    <div class="bx-contents">
       <h3><%= title.game %></h3>
      <ul class="bxslider">
        <% title.tournaments.where(is_completed: true).each do |tournament| %>
         <%= link_to tournament_path(tournament.id) do %>
           <li>
-            <div><%= attachment_image_tag tournament, :image, fallback:"no-Ludus.png", size:"200x200" %></div>
+            <div><%= attachment_image_tag tournament, :image, fallback:"/images/no-Ludus2.png", size:"200x200" %></div>
             <div><%= tournament.name %></div>
             <div><%= simple_time(tournament.date) %></div>
           </li>
@@ -45,6 +79,30 @@
 <script>
   $(function(){
     $(".slick-box").slick({
+      autoplay:true,
+      accessibility:false,
+      adaptiveHeight:true,
+      arrows:false,
+      fade:true,
+    });
+  });
+</script>
+
+<script>
+  $(function(){
+    $(".top-btn").on('click', function(){
+      $(".top").addClass("active")
+      $(".left-image").addClass("active")
+      $(".right-image").addClass("active")
+      $(".top-slick").addClass("active")
+      $(".bottom-slick").addClass("active")
+    });
+  });
+</script>
+
+<script>
+  $(function(){
+    $(".slick-top").slick({
       autoplay:true,
       accessibility:false,
       adaptiveHeight:true,

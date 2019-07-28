@@ -5,19 +5,20 @@
 		<div class="rlist-contents">
 			<%= link_to room_path(@open_room) do %>
 				<div>
-					<%= attachment_image_tag @tournament, :image, size:"40x40", class:"img-circle room-link" %>
+					<%= attachment_image_tag @tournament, :image, size:"40x40", fallback:"/images/no-Ludus2.png" class:"img-circle room-link" %>
 					<span class="room-link"><%= @tournament.name %>のグループチャットルーム</span>
-					<% end %>
 				</div>
+			<% end %>
 		</div>
 		<% @tournament.members.each do |member| %>
 			<div class="rlist-contents">
 				<%= link_to room_path(member.room) do %>
 					<div>
-						<%= attachment_image_tag member.user, :icon, fallback:"no_image.png", size:"40x40", class:"img-circle room-link" %>
+						<%= attachment_image_tag member.user, :icon, fallback:"/images/no_image.png", size:"40x40", class:"img-circle room-link" %>
 						<span class="room-link"><%= member.user.name %></span>
-						<% end %>
+
 					</div>
+				<% end %>
 			</div>
 		<% end %>
 	</div>
@@ -47,38 +48,7 @@
 	</div>
 
 	<div class="jscroll">
-		<% @messages.each do |message| %>
-			<% if message.user_id == current_user.id %>
-				<div class="mymessage">
-					<%= link_to user_path(message.user_id) do %>
-						<div class="mychat-face">
-							<%= attachment_image_tag message.user, :icon, fallback: "no_image.png", size: "80x80", class:"img-circle" %>
-							<div class="mychat-name"><%= "#{message.user.name}" %></div>
-						</div>
-					<% end %>
-					<div class="mychat-area">
-						<div class="mychat-hukidashi">
-							<%= "#{message.chat}" %>
-						</div>
-					</div>
-				</div>
-			<% else %>
-				<div class="message">
-					<%= link_to user_path(message.user_id) do %>
-						<div class="chat-face">
-							<%= attachment_image_tag message.user, :icon, fallback: "no_image.png", size: "80x80", class:"img-circle" %>
-							<div class="chat-name"><%= "#{message.user.name}" %></div>
-						</div>
-					<% end %>
-					<div class="chat-area">
-						<div class="chat-hukidashi">
-							<%= "#{message.chat}" %>
-						</div>
-					</div>
-				</div>
-			<% end %>
-		<% end %>
-		<%= paginate @messages %>
+		<%= render "messages/list", messages: @messages %>
 	</div>
 
 </div>

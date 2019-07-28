@@ -35,7 +35,6 @@
 #tab-contents .tab{
 	padding:30px;
 	padding-top: 0;
-	background:#fff;
 	border-top:none;
 }
 #tab-contents p{
@@ -44,7 +43,7 @@
 }
 
 .myicon{
-	width:50%;
+	width:300px;
 	margin:0 auto;
 }
 
@@ -54,18 +53,17 @@
 .uname{
 	border:1.5px solid #ccc;
 	border-radius: 3px;
-	width:40%;
+	display: inline-block;
+	min-width:40%;
 	padding:5px;
 }
-.mygood{
-	margin-top:30px;
-}
+
 .entry-list{
+	width:50%;
 	margin: 0 auto;
 	margin-top:30px;
 	padding-bottom: 30px;
 	border-bottom: 2px solid #ccc;
-	width:50%;
 }
 .post-list{
 	margin: 0 auto;
@@ -85,6 +83,8 @@
 	width:70%;
 	margin:0 auto;
 	margin-bottom: 20px;
+	background-color: #fff;
+	padding-top: 30px;
 }
 
 .show-contents{
@@ -102,3 +102,4 @@ nav.pagination{
 .show-btns{
 	margin-left: 15px;
 }
+
