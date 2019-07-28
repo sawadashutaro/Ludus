@@ -5,7 +5,7 @@
 		<div class="rlist-contents">
 			<%= link_to room_path(@open_room) do %>
 				<div>
-					<%= attachment_image_tag @tournament, :image, size:"40x40", fallback:"/images/no-Ludus2.png" class:"img-circle room-link" %>
+					<%= attachment_image_tag @tournament, :image, size:"40x40", fallback:"/images/no-Ludus2.png", class:"img-circle room-link" %>
 					<span class="room-link"><%= @tournament.name %>のグループチャットルーム</span>
 				</div>
 			<% end %>
@@ -14,7 +14,11 @@
 			<div class="rlist-contents">
 				<%= link_to room_path(member.room) do %>
 					<div>
-						<%= attachment_image_tag member.user, :icon, fallback:"/images/no_image.png", size:"40x40", class:"img-circle room-link" %>
+						<% if member.is_google == false %>
+							<%= attachment_image_tag member.user, :icon, fallback:"/images/no_image.png", size:"40x40", class:"img-circle room-link" %>
+						<% else %>
+							<img src="<%= member.user.icon_id %>" class="img-circle" width="40" height="40">
+						<% end %>
 						<span class="room-link"><%= member.user.name %></span>
 
 					</div>
