@@ -1,6 +1,6 @@
 class CreateTournaments < ActiveRecord::Migration[5.2]
   def change
-    create_table :tournaments do |t|
+    create_table :tournaments, :options => 'ENGINE=InnoDB ROW_FORMAT=DYNAMIC' do |t|
       t.string :name
       t.string :image
       t.string :game

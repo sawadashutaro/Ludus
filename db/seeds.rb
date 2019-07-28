@@ -8,10 +8,3 @@
 
 Title.create(game:"Title1")
 Title.create(game:"Title2")
-Room.create(tournament_id:1)
-Member.create(room_id:1, user_id:1, tournament_id:1)
-Room.create(tournament_id:1, is_opened:"true")
-user = User.new(name:"Takashi", email:"takashi@gmail.com", password:"takashi")
-user.save!
-user = User.new(name:"Kirito", email:"kirito@gmail.com", password:"kirito")
-user.save!

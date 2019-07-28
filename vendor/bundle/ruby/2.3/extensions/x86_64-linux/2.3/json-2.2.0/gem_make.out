@@ -1,0 +1,14 @@
+current directory: /var/www/html/Ludus/vendor/bundle/ruby/2.3/gems/json-2.2.0/ext/json
+/usr/bin/ruby2.3 -r ./siteconf20190728-30184-19y7gbj.rb extconf.rb
+creating Makefile
+
+current directory: /var/www/html/Ludus/vendor/bundle/ruby/2.3/gems/json-2.2.0/ext/json
+make "DESTDIR=" clean
+rm -f .so  *.o  *.bak mkmf.log .*.time
+
+current directory: /var/www/html/Ludus/vendor/bundle/ruby/2.3/gems/json-2.2.0/ext/json
+make "DESTDIR="
+make: Nothing to be done for `all'.
+
+current directory: /var/www/html/Ludus/vendor/bundle/ruby/2.3/gems/json-2.2.0/ext/json
+make "DESTDIR=" install

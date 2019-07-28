@@ -1,0 +1,547 @@
+current directory: /var/www/html/Ludus/vendor/bundle/ruby/2.3/gems/openssl-2.1.2/ext/openssl
+/usr/bin/ruby2.3 -r ./siteconf20190728-30184-buiahj.rb extconf.rb
+checking for t_open() in -lnsl... no
+checking for socket() in -lsocket... no
+checking for openssl/ssl.h... yes
+checking for OpenSSL version is 1.0.1 or later... yes
+checking for RAND_egd()... yes
+checking for ENGINE_load_builtin_engines() in openssl/engine.h with -Werror=deprecated-declarations... yes
+checking for ENGINE_load_openbsd_dev_crypto() in openssl/engine.h with -Werror=deprecated-declarations... no
+checking for ENGINE_load_openbsd_dev_crypto in openssl/engine.h... no
+checking for ENGINE_load_dynamic() in openssl/engine.h with -Werror=deprecated-declarations... yes
+checking for ENGINE_load_4758cca() in openssl/engine.h with -Werror=deprecated-declarations... no
+checking for ENGINE_load_4758cca in openssl/engine.h... no
+checking for ENGINE_load_aep() in openssl/engine.h with -Werror=deprecated-declarations... no
+checking for ENGINE_load_aep in openssl/engine.h... no
+checking for ENGINE_load_atalla() in openssl/engine.h with -Werror=deprecated-declarations... no
+checking for ENGINE_load_atalla in openssl/engine.h... no
+checking for ENGINE_load_chil() in openssl/engine.h with -Werror=deprecated-declarations... no
+checking for ENGINE_load_chil in openssl/engine.h... no
+checking for ENGINE_load_cswift() in openssl/engine.h with -Werror=deprecated-declarations... no
+checking for ENGINE_load_cswift in openssl/engine.h... no
+checking for ENGINE_load_nuron() in openssl/engine.h with -Werror=deprecated-declarations... no
+checking for ENGINE_load_nuron in openssl/engine.h... no
+checking for ENGINE_load_sureware() in openssl/engine.h with -Werror=deprecated-declarations... no
+checking for ENGINE_load_sureware in openssl/engine.h... no
+checking for ENGINE_load_ubsec() in openssl/engine.h with -Werror=deprecated-declarations... no
+checking for ENGINE_load_ubsec in openssl/engine.h... no
+checking for ENGINE_load_padlock() in openssl/engine.h with -Werror=deprecated-declarations... no
+checking for ENGINE_load_padlock in openssl/engine.h... no
+checking for ENGINE_load_capi() in openssl/engine.h with -Werror=deprecated-declarations... no
+checking for ENGINE_load_capi in openssl/engine.h... no
+checking for ENGINE_load_gmp() in openssl/engine.h with -Werror=deprecated-declarations... no
+checking for ENGINE_load_gmp in openssl/engine.h... no
+checking for ENGINE_load_gost() in openssl/engine.h with -Werror=deprecated-declarations... no
+checking for ENGINE_load_gost in openssl/engine.h... no
+checking for ENGINE_load_cryptodev() in openssl/engine.h with -Werror=deprecated-declarations... yes
+checking for ENGINE_load_aesni() in openssl/engine.h with -Werror=deprecated-declarations... yes
+checking for EC_curve_nist2nid()... yes
+checking for X509_REVOKED_dup()... yes
+checking for X509_STORE_CTX_get0_store()... yes
+checking for SSL_CTX_set_alpn_select_cb()... yes
+checking for SSL_CTX_set1_curves_list() in openssl/ssl.h with -Werror=deprecated-declarations... no
+checking for SSL_CTX_set1_curves_list in openssl/ssl.h... yes
+checking for SSL_CTX_set_ecdh_auto() in openssl/ssl.h with -Werror=deprecated-declarations... no
+checking for SSL_CTX_set_ecdh_auto in openssl/ssl.h... yes
+checking for SSL_get_server_tmp_key() in openssl/ssl.h with -Werror=deprecated-declarations... no
+checking for SSL_get_server_tmp_key in openssl/ssl.h... yes
+checking for SSL_is_server()... yes
+checking for SSL.ctx in openssl/ssl.h... yes
+checking for CRYPTO_lock()... yes
+checking for BN_GENCB_new()... no
+checking for BN_GENCB_free()... no
+checking for BN_GENCB_get_arg()... no
+checking for EVP_MD_CTX_new()... no
+checking for EVP_MD_CTX_free()... no
+checking for HMAC_CTX_new()... no
+checking for HMAC_CTX_free()... no
+checking for RAND_pseudo_bytes() in openssl/rand.h with -Werror=deprecated-declarations... yes
+checking for X509_STORE_get_ex_data()... no
+checking for X509_STORE_set_ex_data()... no
+checking for X509_CRL_get0_signature()... no
+checking for X509_REQ_get0_signature()... no
+checking for X509_REVOKED_get0_serialNumber()... no
+checking for X509_REVOKED_get0_revocationDate()... no
+checking for X509_get0_tbs_sigalg()... no
+checking for X509_STORE_CTX_get0_untrusted()... no
+checking for X509_STORE_CTX_get0_cert()... no
+checking for X509_STORE_CTX_get0_chain()... no
+checking for OCSP_SINGLERESP_get0_id()... no
+checking for SSL_CTX_get_ciphers()... no
+checking for X509_up_ref()... no
+checking for X509_CRL_up_ref()... no
+checking for X509_STORE_up_ref()... no
+checking for SSL_SESSION_up_ref()... no
+checking for EVP_PKEY_up_ref()... no
+checking for SSL_CTX_set_tmp_ecdh_callback() in openssl/ssl.h with -Werror=deprecated-declarations... yes
+checking for SSL_CTX_set_min_proto_version() in openssl/ssl.h with -Werror=deprecated-declarations... no
+checking for SSL_CTX_set_min_proto_version in openssl/ssl.h... no
+checking for SSL_CTX_get_security_level()... no
+checking for X509_get0_notBefore()... no
+checking for SSL_SESSION_get_protocol_version()... no
+checking for EVP_PBE_scrypt()... no
+creating extconf.h
+creating Makefile
+
+To see why this extension failed to compile, please check the mkmf.log which can be found here:
+
+  /var/www/html/Ludus/vendor/bundle/ruby/2.3/extensions/x86_64-linux/2.3/openssl-2.1.2/mkmf.log
+
+current directory: /var/www/html/Ludus/vendor/bundle/ruby/2.3/gems/openssl-2.1.2/ext/openssl
+make "DESTDIR=" clean
+rm -f 
+rm -f openssl.so  *.o  *.bak mkmf.log .*.time
+
+current directory: /var/www/html/Ludus/vendor/bundle/ruby/2.3/gems/openssl-2.1.2/ext/openssl
+make "DESTDIR="
+gcc -I. -I/usr/include/ruby/2.3 -I/usr/include/ruby/2.3/ruby/backward -I/usr/include/ruby/2.3 -I.  -DRUBY_EXTCONF_H=\"extconf.h\"    -fPIC -O2 -g -pipe -Wall -Wp,-D_FORTIFY_SOURCE=2 -fexceptions -fstack-protector --param=ssp-buffer-size=4 -mtune=generic -fPIC  -m64 -o openssl_missing.o -c openssl_missing.c
+In file included from openssl_missing.c:21:0:
+openssl_missing.h: In function ‘DH_set0_pqg’:
+openssl_missing.h:188:61: warning: suggest parentheses around ‘&&’ within ‘||’ [-Wparentheses]
+ IMPL_KEY_ACCESSOR3(DH, pqg, p, q, g, (p == obj->p || obj->q && q == obj->q || g == obj->g))
+                                                             ^
+openssl_missing.h:166:6: note: in definition of macro ‘IMPL_KEY_ACCESSOR3’
+  if (_fail_cond) return 0; \
+      ^
+gcc -I. -I/usr/include/ruby/2.3 -I/usr/include/ruby/2.3/ruby/backward -I/usr/include/ruby/2.3 -I.  -DRUBY_EXTCONF_H=\"extconf.h\"    -fPIC -O2 -g -pipe -Wall -Wp,-D_FORTIFY_SOURCE=2 -fexceptions -fstack-protector --param=ssp-buffer-size=4 -mtune=generic -fPIC  -m64 -o ossl.o -c ossl.c
+In file included from ossl.h:155:0,
+                 from ossl.c:10:
+openssl_missing.h: In function ‘DH_set0_pqg’:
+openssl_missing.h:188:61: warning: suggest parentheses around ‘&&’ within ‘||’ [-Wparentheses]
+ IMPL_KEY_ACCESSOR3(DH, pqg, p, q, g, (p == obj->p || obj->q && q == obj->q || g == obj->g))
+                                                             ^
+openssl_missing.h:166:6: note: in definition of macro ‘IMPL_KEY_ACCESSOR3’
+  if (_fail_cond) return 0; \
+      ^
+gcc -I. -I/usr/include/ruby/2.3 -I/usr/include/ruby/2.3/ruby/backward -I/usr/include/ruby/2.3 -I.  -DRUBY_EXTCONF_H=\"extconf.h\"    -fPIC -O2 -g -pipe -Wall -Wp,-D_FORTIFY_SOURCE=2 -fexceptions -fstack-protector --param=ssp-buffer-size=4 -mtune=generic -fPIC  -m64 -o ossl_asn1.o -c ossl_asn1.c
+In file included from ossl.h:155:0,
+                 from ossl_asn1.c:10:
+openssl_missing.h: In function ‘DH_set0_pqg’:
+openssl_missing.h:188:61: warning: suggest parentheses around ‘&&’ within ‘||’ [-Wparentheses]
+ IMPL_KEY_ACCESSOR3(DH, pqg, p, q, g, (p == obj->p || obj->q && q == obj->q || g == obj->g))
+                                                             ^
+openssl_missing.h:166:6: note: in definition of macro ‘IMPL_KEY_ACCESSOR3’
+  if (_fail_cond) return 0; \
+      ^
+gcc -I. -I/usr/include/ruby/2.3 -I/usr/include/ruby/2.3/ruby/backward -I/usr/include/ruby/2.3 -I.  -DRUBY_EXTCONF_H=\"extconf.h\"    -fPIC -O2 -g -pipe -Wall -Wp,-D_FORTIFY_SOURCE=2 -fexceptions -fstack-protector --param=ssp-buffer-size=4 -mtune=generic -fPIC  -m64 -o ossl_bio.o -c ossl_bio.c
+In file included from ossl.h:155:0,
+                 from ossl_bio.c:10:
+openssl_missing.h: In function ‘DH_set0_pqg’:
+openssl_missing.h:188:61: warning: suggest parentheses around ‘&&’ within ‘||’ [-Wparentheses]
+ IMPL_KEY_ACCESSOR3(DH, pqg, p, q, g, (p == obj->p || obj->q && q == obj->q || g == obj->g))
+                                                             ^
+openssl_missing.h:166:6: note: in definition of macro ‘IMPL_KEY_ACCESSOR3’
+  if (_fail_cond) return 0; \
+      ^
+gcc -I. -I/usr/include/ruby/2.3 -I/usr/include/ruby/2.3/ruby/backward -I/usr/include/ruby/2.3 -I.  -DRUBY_EXTCONF_H=\"extconf.h\"    -fPIC -O2 -g -pipe -Wall -Wp,-D_FORTIFY_SOURCE=2 -fexceptions -fstack-protector --param=ssp-buffer-size=4 -mtune=generic -fPIC  -m64 -o ossl_bn.o -c ossl_bn.c
+In file included from ossl.h:155:0,
+                 from ossl_bn.c:11:
+openssl_missing.h: In function ‘DH_set0_pqg’:
+openssl_missing.h:188:61: warning: suggest parentheses around ‘&&’ within ‘||’ [-Wparentheses]
+ IMPL_KEY_ACCESSOR3(DH, pqg, p, q, g, (p == obj->p || obj->q && q == obj->q || g == obj->g))
+                                                             ^
+openssl_missing.h:166:6: note: in definition of macro ‘IMPL_KEY_ACCESSOR3’
+  if (_fail_cond) return 0; \
+      ^
+gcc -I. -I/usr/include/ruby/2.3 -I/usr/include/ruby/2.3/ruby/backward -I/usr/include/ruby/2.3 -I.  -DRUBY_EXTCONF_H=\"extconf.h\"    -fPIC -O2 -g -pipe -Wall -Wp,-D_FORTIFY_SOURCE=2 -fexceptions -fstack-protector --param=ssp-buffer-size=4 -mtune=generic -fPIC  -m64 -o ossl_cipher.o -c ossl_cipher.c
+In file included from ossl.h:155:0,
+                 from ossl_cipher.c:10:
+openssl_missing.h: In function ‘DH_set0_pqg’:
+openssl_missing.h:188:61: warning: suggest parentheses around ‘&&’ within ‘||’ [-Wparentheses]
+ IMPL_KEY_ACCESSOR3(DH, pqg, p, q, g, (p == obj->p || obj->q && q == obj->q || g == obj->g))
+                                                             ^
+openssl_missing.h:166:6: note: in definition of macro ‘IMPL_KEY_ACCESSOR3’
+  if (_fail_cond) return 0; \
+      ^
+gcc -I. -I/usr/include/ruby/2.3 -I/usr/include/ruby/2.3/ruby/backward -I/usr/include/ruby/2.3 -I.  -DRUBY_EXTCONF_H=\"extconf.h\"    -fPIC -O2 -g -pipe -Wall -Wp,-D_FORTIFY_SOURCE=2 -fexceptions -fstack-protector --param=ssp-buffer-size=4 -mtune=generic -fPIC  -m64 -o ossl_config.o -c ossl_config.c
+In file included from ossl.h:155:0,
+                 from ossl_config.c:10:
+openssl_missing.h: In function ‘DH_set0_pqg’:
+openssl_missing.h:188:61: warning: suggest parentheses around ‘&&’ within ‘||’ [-Wparentheses]
+ IMPL_KEY_ACCESSOR3(DH, pqg, p, q, g, (p == obj->p || obj->q && q == obj->q || g == obj->g))
+                                                             ^
+openssl_missing.h:166:6: note: in definition of macro ‘IMPL_KEY_ACCESSOR3’
+  if (_fail_cond) return 0; \
+      ^
+gcc -I. -I/usr/include/ruby/2.3 -I/usr/include/ruby/2.3/ruby/backward -I/usr/include/ruby/2.3 -I.  -DRUBY_EXTCONF_H=\"extconf.h\"    -fPIC -O2 -g -pipe -Wall -Wp,-D_FORTIFY_SOURCE=2 -fexceptions -fstack-protector --param=ssp-buffer-size=4 -mtune=generic -fPIC  -m64 -o ossl_digest.o -c ossl_digest.c
+In file included from ossl.h:155:0,
+                 from ossl_digest.c:10:
+openssl_missing.h: In function ‘DH_set0_pqg’:
+openssl_missing.h:188:61: warning: suggest parentheses around ‘&&’ within ‘||’ [-Wparentheses]
+ IMPL_KEY_ACCESSOR3(DH, pqg, p, q, g, (p == obj->p || obj->q && q == obj->q || g == obj->g))
+                                                             ^
+openssl_missing.h:166:6: note: in definition of macro ‘IMPL_KEY_ACCESSOR3’
+  if (_fail_cond) return 0; \
+      ^
+gcc -I. -I/usr/include/ruby/2.3 -I/usr/include/ruby/2.3/ruby/backward -I/usr/include/ruby/2.3 -I.  -DRUBY_EXTCONF_H=\"extconf.h\"    -fPIC -O2 -g -pipe -Wall -Wp,-D_FORTIFY_SOURCE=2 -fexceptions -fstack-protector --param=ssp-buffer-size=4 -mtune=generic -fPIC  -m64 -o ossl_engine.o -c ossl_engine.c
+In file included from ossl.h:155:0,
+                 from ossl_engine.c:10:
+openssl_missing.h: In function ‘DH_set0_pqg’:
+openssl_missing.h:188:61: warning: suggest parentheses around ‘&&’ within ‘||’ [-Wparentheses]
+ IMPL_KEY_ACCESSOR3(DH, pqg, p, q, g, (p == obj->p || obj->q && q == obj->q || g == obj->g))
+                                                             ^
+openssl_missing.h:166:6: note: in definition of macro ‘IMPL_KEY_ACCESSOR3’
+  if (_fail_cond) return 0; \
+      ^
+gcc -I. -I/usr/include/ruby/2.3 -I/usr/include/ruby/2.3/ruby/backward -I/usr/include/ruby/2.3 -I.  -DRUBY_EXTCONF_H=\"extconf.h\"    -fPIC -O2 -g -pipe -Wall -Wp,-D_FORTIFY_SOURCE=2 -fexceptions -fstack-protector --param=ssp-buffer-size=4 -mtune=generic -fPIC  -m64 -o ossl_hmac.o -c ossl_hmac.c
+In file included from ossl.h:155:0,
+                 from ossl_hmac.c:12:
+openssl_missing.h: In function ‘DH_set0_pqg’:
+openssl_missing.h:188:61: warning: suggest parentheses around ‘&&’ within ‘||’ [-Wparentheses]
+ IMPL_KEY_ACCESSOR3(DH, pqg, p, q, g, (p == obj->p || obj->q && q == obj->q || g == obj->g))
+                                                             ^
+openssl_missing.h:166:6: note: in definition of macro ‘IMPL_KEY_ACCESSOR3’
+  if (_fail_cond) return 0; \
+      ^
+gcc -I. -I/usr/include/ruby/2.3 -I/usr/include/ruby/2.3/ruby/backward -I/usr/include/ruby/2.3 -I.  -DRUBY_EXTCONF_H=\"extconf.h\"    -fPIC -O2 -g -pipe -Wall -Wp,-D_FORTIFY_SOURCE=2 -fexceptions -fstack-protector --param=ssp-buffer-size=4 -mtune=generic -fPIC  -m64 -o ossl_kdf.o -c ossl_kdf.c
+In file included from ossl.h:155:0,
+                 from ossl_kdf.c:5:
+openssl_missing.h: In function ‘DH_set0_pqg’:
+openssl_missing.h:188:61: warning: suggest parentheses around ‘&&’ within ‘||’ [-Wparentheses]
+ IMPL_KEY_ACCESSOR3(DH, pqg, p, q, g, (p == obj->p || obj->q && q == obj->q || g == obj->g))
+                                                             ^
+openssl_missing.h:166:6: note: in definition of macro ‘IMPL_KEY_ACCESSOR3’
+  if (_fail_cond) return 0; \
+      ^
+gcc -I. -I/usr/include/ruby/2.3 -I/usr/include/ruby/2.3/ruby/backward -I/usr/include/ruby/2.3 -I.  -DRUBY_EXTCONF_H=\"extconf.h\"    -fPIC -O2 -g -pipe -Wall -Wp,-D_FORTIFY_SOURCE=2 -fexceptions -fstack-protector --param=ssp-buffer-size=4 -mtune=generic -fPIC  -m64 -o ossl_ns_spki.o -c ossl_ns_spki.c
+In file included from ossl.h:155:0,
+                 from ossl_ns_spki.c:10:
+openssl_missing.h: In function ‘DH_set0_pqg’:
+openssl_missing.h:188:61: warning: suggest parentheses around ‘&&’ within ‘||’ [-Wparentheses]
+ IMPL_KEY_ACCESSOR3(DH, pqg, p, q, g, (p == obj->p || obj->q && q == obj->q || g == obj->g))
+                                                             ^
+openssl_missing.h:166:6: note: in definition of macro ‘IMPL_KEY_ACCESSOR3’
+  if (_fail_cond) return 0; \
+      ^
+gcc -I. -I/usr/include/ruby/2.3 -I/usr/include/ruby/2.3/ruby/backward -I/usr/include/ruby/2.3 -I.  -DRUBY_EXTCONF_H=\"extconf.h\"    -fPIC -O2 -g -pipe -Wall -Wp,-D_FORTIFY_SOURCE=2 -fexceptions -fstack-protector --param=ssp-buffer-size=4 -mtune=generic -fPIC  -m64 -o ossl_ocsp.o -c ossl_ocsp.c
+In file included from ossl.h:155:0,
+                 from ossl_ocsp.c:11:
+openssl_missing.h: In function ‘DH_set0_pqg’:
+openssl_missing.h:188:61: warning: suggest parentheses around ‘&&’ within ‘||’ [-Wparentheses]
+ IMPL_KEY_ACCESSOR3(DH, pqg, p, q, g, (p == obj->p || obj->q && q == obj->q || g == obj->g))
+                                                             ^
+openssl_missing.h:166:6: note: in definition of macro ‘IMPL_KEY_ACCESSOR3’
+  if (_fail_cond) return 0; \
+      ^
+gcc -I. -I/usr/include/ruby/2.3 -I/usr/include/ruby/2.3/ruby/backward -I/usr/include/ruby/2.3 -I.  -DRUBY_EXTCONF_H=\"extconf.h\"    -fPIC -O2 -g -pipe -Wall -Wp,-D_FORTIFY_SOURCE=2 -fexceptions -fstack-protector --param=ssp-buffer-size=4 -mtune=generic -fPIC  -m64 -o ossl_pkcs12.o -c ossl_pkcs12.c
+In file included from ossl.h:155:0,
+                 from ossl_pkcs12.c:5:
+openssl_missing.h: In function ‘DH_set0_pqg’:
+openssl_missing.h:188:61: warning: suggest parentheses around ‘&&’ within ‘||’ [-Wparentheses]
+ IMPL_KEY_ACCESSOR3(DH, pqg, p, q, g, (p == obj->p || obj->q && q == obj->q || g == obj->g))
+                                                             ^
+openssl_missing.h:166:6: note: in definition of macro ‘IMPL_KEY_ACCESSOR3’
+  if (_fail_cond) return 0; \
+      ^
+gcc -I. -I/usr/include/ruby/2.3 -I/usr/include/ruby/2.3/ruby/backward -I/usr/include/ruby/2.3 -I.  -DRUBY_EXTCONF_H=\"extconf.h\"    -fPIC -O2 -g -pipe -Wall -Wp,-D_FORTIFY_SOURCE=2 -fexceptions -fstack-protector --param=ssp-buffer-size=4 -mtune=generic -fPIC  -m64 -o ossl_pkcs7.o -c ossl_pkcs7.c
+In file included from ossl.h:155:0,
+                 from ossl_pkcs7.c:10:
+openssl_missing.h: In function ‘DH_set0_pqg’:
+openssl_missing.h:188:61: warning: suggest parentheses around ‘&&’ within ‘||’ [-Wparentheses]
+ IMPL_KEY_ACCESSOR3(DH, pqg, p, q, g, (p == obj->p || obj->q && q == obj->q || g == obj->g))
+                                                             ^
+openssl_missing.h:166:6: note: in definition of macro ‘IMPL_KEY_ACCESSOR3’
+  if (_fail_cond) return 0; \
+      ^
+gcc -I. -I/usr/include/ruby/2.3 -I/usr/include/ruby/2.3/ruby/backward -I/usr/include/ruby/2.3 -I.  -DRUBY_EXTCONF_H=\"extconf.h\"    -fPIC -O2 -g -pipe -Wall -Wp,-D_FORTIFY_SOURCE=2 -fexceptions -fstack-protector --param=ssp-buffer-size=4 -mtune=generic -fPIC  -m64 -o ossl_pkey.o -c ossl_pkey.c
+In file included from ossl.h:155:0,
+                 from ossl_pkey.c:10:
+openssl_missing.h: In function ‘DH_set0_pqg’:
+openssl_missing.h:188:61: warning: suggest parentheses around ‘&&’ within ‘||’ [-Wparentheses]
+ IMPL_KEY_ACCESSOR3(DH, pqg, p, q, g, (p == obj->p || obj->q && q == obj->q || g == obj->g))
+                                                             ^
+openssl_missing.h:166:6: note: in definition of macro ‘IMPL_KEY_ACCESSOR3’
+  if (_fail_cond) return 0; \
+      ^
+gcc -I. -I/usr/include/ruby/2.3 -I/usr/include/ruby/2.3/ruby/backward -I/usr/include/ruby/2.3 -I.  -DRUBY_EXTCONF_H=\"extconf.h\"    -fPIC -O2 -g -pipe -Wall -Wp,-D_FORTIFY_SOURCE=2 -fexceptions -fstack-protector --param=ssp-buffer-size=4 -mtune=generic -fPIC  -m64 -o ossl_pkey_dh.o -c ossl_pkey_dh.c
+In file included from ossl.h:155:0,
+                 from ossl_pkey_dh.c:10:
+openssl_missing.h: In function ‘DH_set0_pqg’:
+openssl_missing.h:188:61: warning: suggest parentheses around ‘&&’ within ‘||’ [-Wparentheses]
+ IMPL_KEY_ACCESSOR3(DH, pqg, p, q, g, (p == obj->p || obj->q && q == obj->q || g == obj->g))
+                                                             ^
+openssl_missing.h:166:6: note: in definition of macro ‘IMPL_KEY_ACCESSOR3’
+  if (_fail_cond) return 0; \
+      ^
+ossl_pkey_dh.c: In function ‘ossl_dh_initialize_copy’:
+ossl_pkey_dh.c:265:20: warning: suggest parentheses around ‘&&’ within ‘||’ [-Wparentheses]
+  if (!pub2 || priv && !priv2) {
+                    ^
+In file included from ossl.h:168:0,
+                 from ossl_pkey_dh.c:10:
+ossl_pkey_dh.c: In function ‘ossl_dh_set_pqg’:
+ossl_pkey.h:136:15: warning: suggest parentheses around ‘&&’ within ‘||’ [-Wparentheses]
+  if (orig_bn1 && !(bn1 = BN_dup(orig_bn1)) ||   \
+               ^
+ossl_pkey.h:224:2: note: in expansion of macro ‘OSSL_PKEY_BN_DEF_SETTER3’
+  OSSL_PKEY_BN_DEF_SETTER3(_keytype, _type, _group, a1, a2, a3) \
+  ^
+ossl_pkey_dh.c:562:1: note: in expansion of macro ‘OSSL_PKEY_BN_DEF3’
+ OSSL_PKEY_BN_DEF3(dh, DH, pqg, p, q, g)
+ ^
+ossl_pkey.h:138:15: warning: suggest parentheses around ‘&&’ within ‘||’ [-Wparentheses]
+      orig_bn3 && !(bn3 = BN_dup(orig_bn3))) {   \
+               ^
+ossl_pkey.h:224:2: note: in expansion of macro ‘OSSL_PKEY_BN_DEF_SETTER3’
+  OSSL_PKEY_BN_DEF_SETTER3(_keytype, _type, _group, a1, a2, a3) \
+  ^
+ossl_pkey_dh.c:562:1: note: in expansion of macro ‘OSSL_PKEY_BN_DEF3’
+ OSSL_PKEY_BN_DEF3(dh, DH, pqg, p, q, g)
+ ^
+ossl_pkey_dh.c: In function ‘ossl_dh_set_key’:
+ossl_pkey.h:166:15: warning: suggest parentheses around ‘&&’ within ‘||’ [-Wparentheses]
+  if (orig_bn1 && !(bn1 = BN_dup(orig_bn1)) ||   \
+               ^
+ossl_pkey.h:231:2: note: in expansion of macro ‘OSSL_PKEY_BN_DEF_SETTER2’
+  OSSL_PKEY_BN_DEF_SETTER2(_keytype, _type, _group, a1, a2) \
+  ^
+ossl_pkey_dh.c:570:1: note: in expansion of macro ‘OSSL_PKEY_BN_DEF2’
+ OSSL_PKEY_BN_DEF2(dh, DH, key, pub_key, priv_key)
+ ^
+gcc -I. -I/usr/include/ruby/2.3 -I/usr/include/ruby/2.3/ruby/backward -I/usr/include/ruby/2.3 -I.  -DRUBY_EXTCONF_H=\"extconf.h\"    -fPIC -O2 -g -pipe -Wall -Wp,-D_FORTIFY_SOURCE=2 -fexceptions -fstack-protector --param=ssp-buffer-size=4 -mtune=generic -fPIC  -m64 -o ossl_pkey_dsa.o -c ossl_pkey_dsa.c
+In file included from ossl.h:155:0,
+                 from ossl_pkey_dsa.c:10:
+openssl_missing.h: In function ‘DH_set0_pqg’:
+openssl_missing.h:188:61: warning: suggest parentheses around ‘&&’ within ‘||’ [-Wparentheses]
+ IMPL_KEY_ACCESSOR3(DH, pqg, p, q, g, (p == obj->p || obj->q && q == obj->q || g == obj->g))
+                                                             ^
+openssl_missing.h:166:6: note: in definition of macro ‘IMPL_KEY_ACCESSOR3’
+  if (_fail_cond) return 0; \
+      ^
+In file included from ossl.h:168:0,
+                 from ossl_pkey_dsa.c:10:
+ossl_pkey_dsa.c: In function ‘ossl_dsa_set_pqg’:
+ossl_pkey.h:136:15: warning: suggest parentheses around ‘&&’ within ‘||’ [-Wparentheses]
+  if (orig_bn1 && !(bn1 = BN_dup(orig_bn1)) ||   \
+               ^
+ossl_pkey.h:224:2: note: in expansion of macro ‘OSSL_PKEY_BN_DEF_SETTER3’
+  OSSL_PKEY_BN_DEF_SETTER3(_keytype, _type, _group, a1, a2, a3) \
+  ^
+ossl_pkey_dsa.c:595:1: note: in expansion of macro ‘OSSL_PKEY_BN_DEF3’
+ OSSL_PKEY_BN_DEF3(dsa, DSA, pqg, p, q, g)
+ ^
+ossl_pkey.h:138:15: warning: suggest parentheses around ‘&&’ within ‘||’ [-Wparentheses]
+      orig_bn3 && !(bn3 = BN_dup(orig_bn3))) {   \
+               ^
+ossl_pkey.h:224:2: note: in expansion of macro ‘OSSL_PKEY_BN_DEF_SETTER3’
+  OSSL_PKEY_BN_DEF_SETTER3(_keytype, _type, _group, a1, a2, a3) \
+  ^
+ossl_pkey_dsa.c:595:1: note: in expansion of macro ‘OSSL_PKEY_BN_DEF3’
+ OSSL_PKEY_BN_DEF3(dsa, DSA, pqg, p, q, g)
+ ^
+ossl_pkey_dsa.c: In function ‘ossl_dsa_set_key’:
+ossl_pkey.h:166:15: warning: suggest parentheses around ‘&&’ within ‘||’ [-Wparentheses]
+  if (orig_bn1 && !(bn1 = BN_dup(orig_bn1)) ||   \
+               ^
+ossl_pkey.h:231:2: note: in expansion of macro ‘OSSL_PKEY_BN_DEF_SETTER2’
+  OSSL_PKEY_BN_DEF_SETTER2(_keytype, _type, _group, a1, a2) \
+  ^
+ossl_pkey_dsa.c:603:1: note: in expansion of macro ‘OSSL_PKEY_BN_DEF2’
+ OSSL_PKEY_BN_DEF2(dsa, DSA, key, pub_key, priv_key)
+ ^
+gcc -I. -I/usr/include/ruby/2.3 -I/usr/include/ruby/2.3/ruby/backward -I/usr/include/ruby/2.3 -I.  -DRUBY_EXTCONF_H=\"extconf.h\"    -fPIC -O2 -g -pipe -Wall -Wp,-D_FORTIFY_SOURCE=2 -fexceptions -fstack-protector --param=ssp-buffer-size=4 -mtune=generic -fPIC  -m64 -o ossl_pkey_ec.o -c ossl_pkey_ec.c
+In file included from ossl.h:155:0,
+                 from ossl_pkey_ec.c:5:
+openssl_missing.h: In function ‘DH_set0_pqg’:
+openssl_missing.h:188:61: warning: suggest parentheses around ‘&&’ within ‘||’ [-Wparentheses]
+ IMPL_KEY_ACCESSOR3(DH, pqg, p, q, g, (p == obj->p || obj->q && q == obj->q || g == obj->g))
+                                                             ^
+openssl_missing.h:166:6: note: in definition of macro ‘IMPL_KEY_ACCESSOR3’
+  if (_fail_cond) return 0; \
+      ^
+gcc -I. -I/usr/include/ruby/2.3 -I/usr/include/ruby/2.3/ruby/backward -I/usr/include/ruby/2.3 -I.  -DRUBY_EXTCONF_H=\"extconf.h\"    -fPIC -O2 -g -pipe -Wall -Wp,-D_FORTIFY_SOURCE=2 -fexceptions -fstack-protector --param=ssp-buffer-size=4 -mtune=generic -fPIC  -m64 -o ossl_pkey_rsa.o -c ossl_pkey_rsa.c
+In file included from ossl.h:155:0,
+                 from ossl_pkey_rsa.c:10:
+openssl_missing.h: In function ‘DH_set0_pqg’:
+openssl_missing.h:188:61: warning: suggest parentheses around ‘&&’ within ‘||’ [-Wparentheses]
+ IMPL_KEY_ACCESSOR3(DH, pqg, p, q, g, (p == obj->p || obj->q && q == obj->q || g == obj->g))
+                                                             ^
+openssl_missing.h:166:6: note: in definition of macro ‘IMPL_KEY_ACCESSOR3’
+  if (_fail_cond) return 0; \
+      ^
+In file included from ossl.h:168:0,
+                 from ossl_pkey_rsa.c:10:
+ossl_pkey_rsa.c: In function ‘ossl_rsa_set_key’:
+ossl_pkey.h:136:15: warning: suggest parentheses around ‘&&’ within ‘||’ [-Wparentheses]
+  if (orig_bn1 && !(bn1 = BN_dup(orig_bn1)) ||   \
+               ^
+ossl_pkey.h:224:2: note: in expansion of macro ‘OSSL_PKEY_BN_DEF_SETTER3’
+  OSSL_PKEY_BN_DEF_SETTER3(_keytype, _type, _group, a1, a2, a3) \
+  ^
+ossl_pkey_rsa.c:854:1: note: in expansion of macro ‘OSSL_PKEY_BN_DEF3’
+ OSSL_PKEY_BN_DEF3(rsa, RSA, key, n, e, d)
+ ^
+ossl_pkey.h:138:15: warning: suggest parentheses around ‘&&’ within ‘||’ [-Wparentheses]
+      orig_bn3 && !(bn3 = BN_dup(orig_bn3))) {   \
+               ^
+ossl_pkey.h:224:2: note: in expansion of macro ‘OSSL_PKEY_BN_DEF_SETTER3’
+  OSSL_PKEY_BN_DEF_SETTER3(_keytype, _type, _group, a1, a2, a3) \
+  ^
+ossl_pkey_rsa.c:854:1: note: in expansion of macro ‘OSSL_PKEY_BN_DEF3’
+ OSSL_PKEY_BN_DEF3(rsa, RSA, key, n, e, d)
+ ^
+ossl_pkey_rsa.c: In function ‘ossl_rsa_set_factors’:
+ossl_pkey.h:166:15: warning: suggest parentheses around ‘&&’ within ‘||’ [-Wparentheses]
+  if (orig_bn1 && !(bn1 = BN_dup(orig_bn1)) ||   \
+               ^
+ossl_pkey.h:231:2: note: in expansion of macro ‘OSSL_PKEY_BN_DEF_SETTER2’
+  OSSL_PKEY_BN_DEF_SETTER2(_keytype, _type, _group, a1, a2) \
+  ^
+ossl_pkey_rsa.c:862:1: note: in expansion of macro ‘OSSL_PKEY_BN_DEF2’
+ OSSL_PKEY_BN_DEF2(rsa, RSA, factors, p, q)
+ ^
+ossl_pkey_rsa.c: In function ‘ossl_rsa_set_crt_params’:
+ossl_pkey.h:136:15: warning: suggest parentheses around ‘&&’ within ‘||’ [-Wparentheses]
+  if (orig_bn1 && !(bn1 = BN_dup(orig_bn1)) ||   \
+               ^
+ossl_pkey.h:224:2: note: in expansion of macro ‘OSSL_PKEY_BN_DEF_SETTER3’
+  OSSL_PKEY_BN_DEF_SETTER3(_keytype, _type, _group, a1, a2, a3) \
+  ^
+ossl_pkey_rsa.c:872:1: note: in expansion of macro ‘OSSL_PKEY_BN_DEF3’
+ OSSL_PKEY_BN_DEF3(rsa, RSA, crt_params, dmp1, dmq1, iqmp)
+ ^
+ossl_pkey.h:138:15: warning: suggest parentheses around ‘&&’ within ‘||’ [-Wparentheses]
+      orig_bn3 && !(bn3 = BN_dup(orig_bn3))) {   \
+               ^
+ossl_pkey.h:224:2: note: in expansion of macro ‘OSSL_PKEY_BN_DEF_SETTER3’
+  OSSL_PKEY_BN_DEF_SETTER3(_keytype, _type, _group, a1, a2, a3) \
+  ^
+ossl_pkey_rsa.c:872:1: note: in expansion of macro ‘OSSL_PKEY_BN_DEF3’
+ OSSL_PKEY_BN_DEF3(rsa, RSA, crt_params, dmp1, dmq1, iqmp)
+ ^
+gcc -I. -I/usr/include/ruby/2.3 -I/usr/include/ruby/2.3/ruby/backward -I/usr/include/ruby/2.3 -I.  -DRUBY_EXTCONF_H=\"extconf.h\"    -fPIC -O2 -g -pipe -Wall -Wp,-D_FORTIFY_SOURCE=2 -fexceptions -fstack-protector --param=ssp-buffer-size=4 -mtune=generic -fPIC  -m64 -o ossl_rand.o -c ossl_rand.c
+In file included from ossl.h:155:0,
+                 from ossl_rand.c:10:
+openssl_missing.h: In function ‘DH_set0_pqg’:
+openssl_missing.h:188:61: warning: suggest parentheses around ‘&&’ within ‘||’ [-Wparentheses]
+ IMPL_KEY_ACCESSOR3(DH, pqg, p, q, g, (p == obj->p || obj->q && q == obj->q || g == obj->g))
+                                                             ^
+openssl_missing.h:166:6: note: in definition of macro ‘IMPL_KEY_ACCESSOR3’
+  if (_fail_cond) return 0; \
+      ^
+gcc -I. -I/usr/include/ruby/2.3 -I/usr/include/ruby/2.3/ruby/backward -I/usr/include/ruby/2.3 -I.  -DRUBY_EXTCONF_H=\"extconf.h\"    -fPIC -O2 -g -pipe -Wall -Wp,-D_FORTIFY_SOURCE=2 -fexceptions -fstack-protector --param=ssp-buffer-size=4 -mtune=generic -fPIC  -m64 -o ossl_ssl.o -c ossl_ssl.c
+In file included from ossl.h:155:0,
+                 from ossl_ssl.c:12:
+openssl_missing.h: In function ‘DH_set0_pqg’:
+openssl_missing.h:188:61: warning: suggest parentheses around ‘&&’ within ‘||’ [-Wparentheses]
+ IMPL_KEY_ACCESSOR3(DH, pqg, p, q, g, (p == obj->p || obj->q && q == obj->q || g == obj->g))
+                                                             ^
+openssl_missing.h:166:6: note: in definition of macro ‘IMPL_KEY_ACCESSOR3’
+  if (_fail_cond) return 0; \
+      ^
+ossl_ssl.c: In function ‘ossl_sslctx_set_minmax_proto_version’:
+ossl_ssl.c:187:14: warning: suggest parentheses around ‘&&’ within ‘||’ [-Wparentheses]
+      if (min && min > options_map[i].ver || max && max < options_map[i].ver)
+              ^
+gcc -I. -I/usr/include/ruby/2.3 -I/usr/include/ruby/2.3/ruby/backward -I/usr/include/ruby/2.3 -I.  -DRUBY_EXTCONF_H=\"extconf.h\"    -fPIC -O2 -g -pipe -Wall -Wp,-D_FORTIFY_SOURCE=2 -fexceptions -fstack-protector --param=ssp-buffer-size=4 -mtune=generic -fPIC  -m64 -o ossl_ssl_session.o -c ossl_ssl_session.c
+In file included from ossl.h:155:0,
+                 from ossl_ssl_session.c:5:
+openssl_missing.h: In function ‘DH_set0_pqg’:
+openssl_missing.h:188:61: warning: suggest parentheses around ‘&&’ within ‘||’ [-Wparentheses]
+ IMPL_KEY_ACCESSOR3(DH, pqg, p, q, g, (p == obj->p || obj->q && q == obj->q || g == obj->g))
+                                                             ^
+openssl_missing.h:166:6: note: in definition of macro ‘IMPL_KEY_ACCESSOR3’
+  if (_fail_cond) return 0; \
+      ^
+gcc -I. -I/usr/include/ruby/2.3 -I/usr/include/ruby/2.3/ruby/backward -I/usr/include/ruby/2.3 -I.  -DRUBY_EXTCONF_H=\"extconf.h\"    -fPIC -O2 -g -pipe -Wall -Wp,-D_FORTIFY_SOURCE=2 -fexceptions -fstack-protector --param=ssp-buffer-size=4 -mtune=generic -fPIC  -m64 -o ossl_x509.o -c ossl_x509.c
+In file included from ossl.h:155:0,
+                 from ossl_x509.c:10:
+openssl_missing.h: In function ‘DH_set0_pqg’:
+openssl_missing.h:188:61: warning: suggest parentheses around ‘&&’ within ‘||’ [-Wparentheses]
+ IMPL_KEY_ACCESSOR3(DH, pqg, p, q, g, (p == obj->p || obj->q && q == obj->q || g == obj->g))
+                                                             ^
+openssl_missing.h:166:6: note: in definition of macro ‘IMPL_KEY_ACCESSOR3’
+  if (_fail_cond) return 0; \
+      ^
+gcc -I. -I/usr/include/ruby/2.3 -I/usr/include/ruby/2.3/ruby/backward -I/usr/include/ruby/2.3 -I.  -DRUBY_EXTCONF_H=\"extconf.h\"    -fPIC -O2 -g -pipe -Wall -Wp,-D_FORTIFY_SOURCE=2 -fexceptions -fstack-protector --param=ssp-buffer-size=4 -mtune=generic -fPIC  -m64 -o ossl_x509attr.o -c ossl_x509attr.c
+In file included from ossl.h:155:0,
+                 from ossl_x509attr.c:10:
+openssl_missing.h: In function ‘DH_set0_pqg’:
+openssl_missing.h:188:61: warning: suggest parentheses around ‘&&’ within ‘||’ [-Wparentheses]
+ IMPL_KEY_ACCESSOR3(DH, pqg, p, q, g, (p == obj->p || obj->q && q == obj->q || g == obj->g))
+                                                             ^
+openssl_missing.h:166:6: note: in definition of macro ‘IMPL_KEY_ACCESSOR3’
+  if (_fail_cond) return 0; \
+      ^
+gcc -I. -I/usr/include/ruby/2.3 -I/usr/include/ruby/2.3/ruby/backward -I/usr/include/ruby/2.3 -I.  -DRUBY_EXTCONF_H=\"extconf.h\"    -fPIC -O2 -g -pipe -Wall -Wp,-D_FORTIFY_SOURCE=2 -fexceptions -fstack-protector --param=ssp-buffer-size=4 -mtune=generic -fPIC  -m64 -o ossl_x509cert.o -c ossl_x509cert.c
+In file included from ossl.h:155:0,
+                 from ossl_x509cert.c:10:
+openssl_missing.h: In function ‘DH_set0_pqg’:
+openssl_missing.h:188:61: warning: suggest parentheses around ‘&&’ within ‘||’ [-Wparentheses]
+ IMPL_KEY_ACCESSOR3(DH, pqg, p, q, g, (p == obj->p || obj->q && q == obj->q || g == obj->g))
+                                                             ^
+openssl_missing.h:166:6: note: in definition of macro ‘IMPL_KEY_ACCESSOR3’
+  if (_fail_cond) return 0; \
+      ^
+gcc -I. -I/usr/include/ruby/2.3 -I/usr/include/ruby/2.3/ruby/backward -I/usr/include/ruby/2.3 -I.  -DRUBY_EXTCONF_H=\"extconf.h\"    -fPIC -O2 -g -pipe -Wall -Wp,-D_FORTIFY_SOURCE=2 -fexceptions -fstack-protector --param=ssp-buffer-size=4 -mtune=generic -fPIC  -m64 -o ossl_x509crl.o -c ossl_x509crl.c
+In file included from ossl.h:155:0,
+                 from ossl_x509crl.c:10:
+openssl_missing.h: In function ‘DH_set0_pqg’:
+openssl_missing.h:188:61: warning: suggest parentheses around ‘&&’ within ‘||’ [-Wparentheses]
+ IMPL_KEY_ACCESSOR3(DH, pqg, p, q, g, (p == obj->p || obj->q && q == obj->q || g == obj->g))
+                                                             ^
+openssl_missing.h:166:6: note: in definition of macro ‘IMPL_KEY_ACCESSOR3’
+  if (_fail_cond) return 0; \
+      ^
+gcc -I. -I/usr/include/ruby/2.3 -I/usr/include/ruby/2.3/ruby/backward -I/usr/include/ruby/2.3 -I.  -DRUBY_EXTCONF_H=\"extconf.h\"    -fPIC -O2 -g -pipe -Wall -Wp,-D_FORTIFY_SOURCE=2 -fexceptions -fstack-protector --param=ssp-buffer-size=4 -mtune=generic -fPIC  -m64 -o ossl_x509ext.o -c ossl_x509ext.c
+In file included from ossl.h:155:0,
+                 from ossl_x509ext.c:10:
+openssl_missing.h: In function ‘DH_set0_pqg’:
+openssl_missing.h:188:61: warning: suggest parentheses around ‘&&’ within ‘||’ [-Wparentheses]
+ IMPL_KEY_ACCESSOR3(DH, pqg, p, q, g, (p == obj->p || obj->q && q == obj->q || g == obj->g))
+                                                             ^
+openssl_missing.h:166:6: note: in definition of macro ‘IMPL_KEY_ACCESSOR3’
+  if (_fail_cond) return 0; \
+      ^
+gcc -I. -I/usr/include/ruby/2.3 -I/usr/include/ruby/2.3/ruby/backward -I/usr/include/ruby/2.3 -I.  -DRUBY_EXTCONF_H=\"extconf.h\"    -fPIC -O2 -g -pipe -Wall -Wp,-D_FORTIFY_SOURCE=2 -fexceptions -fstack-protector --param=ssp-buffer-size=4 -mtune=generic -fPIC  -m64 -o ossl_x509name.o -c ossl_x509name.c
+In file included from ossl.h:155:0,
+                 from ossl_x509name.c:10:
+openssl_missing.h: In function ‘DH_set0_pqg’:
+openssl_missing.h:188:61: warning: suggest parentheses around ‘&&’ within ‘||’ [-Wparentheses]
+ IMPL_KEY_ACCESSOR3(DH, pqg, p, q, g, (p == obj->p || obj->q && q == obj->q || g == obj->g))
+                                                             ^
+openssl_missing.h:166:6: note: in definition of macro ‘IMPL_KEY_ACCESSOR3’
+  if (_fail_cond) return 0; \
+      ^
+ossl_x509name.c: In function ‘x509name_print’:
+ossl_x509name.c:273:44: warning: suggest parentheses around ‘&&’ within ‘||’ [-Wparentheses]
+     if (ret < 0 || iflag == XN_FLAG_COMPAT && ret == 0) {
+                                            ^
+gcc -I. -I/usr/include/ruby/2.3 -I/usr/include/ruby/2.3/ruby/backward -I/usr/include/ruby/2.3 -I.  -DRUBY_EXTCONF_H=\"extconf.h\"    -fPIC -O2 -g -pipe -Wall -Wp,-D_FORTIFY_SOURCE=2 -fexceptions -fstack-protector --param=ssp-buffer-size=4 -mtune=generic -fPIC  -m64 -o ossl_x509req.o -c ossl_x509req.c
+In file included from ossl.h:155:0,
+                 from ossl_x509req.c:10:
+openssl_missing.h: In function ‘DH_set0_pqg’:
+openssl_missing.h:188:61: warning: suggest parentheses around ‘&&’ within ‘||’ [-Wparentheses]
+ IMPL_KEY_ACCESSOR3(DH, pqg, p, q, g, (p == obj->p || obj->q && q == obj->q || g == obj->g))
+                                                             ^
+openssl_missing.h:166:6: note: in definition of macro ‘IMPL_KEY_ACCESSOR3’
+  if (_fail_cond) return 0; \
+      ^
+gcc -I. -I/usr/include/ruby/2.3 -I/usr/include/ruby/2.3/ruby/backward -I/usr/include/ruby/2.3 -I.  -DRUBY_EXTCONF_H=\"extconf.h\"    -fPIC -O2 -g -pipe -Wall -Wp,-D_FORTIFY_SOURCE=2 -fexceptions -fstack-protector --param=ssp-buffer-size=4 -mtune=generic -fPIC  -m64 -o ossl_x509revoked.o -c ossl_x509revoked.c
+In file included from ossl.h:155:0,
+                 from ossl_x509revoked.c:10:
+openssl_missing.h: In function ‘DH_set0_pqg’:
+openssl_missing.h:188:61: warning: suggest parentheses around ‘&&’ within ‘||’ [-Wparentheses]
+ IMPL_KEY_ACCESSOR3(DH, pqg, p, q, g, (p == obj->p || obj->q && q == obj->q || g == obj->g))
+                                                             ^
+openssl_missing.h:166:6: note: in definition of macro ‘IMPL_KEY_ACCESSOR3’
+  if (_fail_cond) return 0; \
+      ^
+gcc -I. -I/usr/include/ruby/2.3 -I/usr/include/ruby/2.3/ruby/backward -I/usr/include/ruby/2.3 -I.  -DRUBY_EXTCONF_H=\"extconf.h\"    -fPIC -O2 -g -pipe -Wall -Wp,-D_FORTIFY_SOURCE=2 -fexceptions -fstack-protector --param=ssp-buffer-size=4 -mtune=generic -fPIC  -m64 -o ossl_x509store.o -c ossl_x509store.c
+In file included from ossl.h:155:0,
+                 from ossl_x509store.c:10:
+openssl_missing.h: In function ‘DH_set0_pqg’:
+openssl_missing.h:188:61: warning: suggest parentheses around ‘&&’ within ‘||’ [-Wparentheses]
+ IMPL_KEY_ACCESSOR3(DH, pqg, p, q, g, (p == obj->p || obj->q && q == obj->q || g == obj->g))
+                                                             ^
+openssl_missing.h:166:6: note: in definition of macro ‘IMPL_KEY_ACCESSOR3’
+  if (_fail_cond) return 0; \
+      ^
+rm -f openssl.so
+gcc -shared -o openssl.so openssl_missing.o ossl.o ossl_asn1.o ossl_bio.o ossl_bn.o ossl_cipher.o ossl_config.o ossl_digest.o ossl_engine.o ossl_hmac.o ossl_kdf.o ossl_ns_spki.o ossl_ocsp.o ossl_pkcs12.o ossl_pkcs7.o ossl_pkey.o ossl_pkey_dh.o ossl_pkey_dsa.o ossl_pkey_ec.o ossl_pkey_rsa.o ossl_rand.o ossl_ssl.o ossl_ssl_session.o ossl_x509.o ossl_x509attr.o ossl_x509cert.o ossl_x509crl.o ossl_x509ext.o ossl_x509name.o ossl_x509req.o ossl_x509revoked.o ossl_x509store.o -L. -L/usr/lib64 -L. -fstack-protector -rdynamic -Wl,-export-dynamic   -m64  -L/usr/lib64/ruby/2.3 -lruby  -lssl -lcrypto -lpthread -ldl -lcrypt -lm   -lc
+
+current directory: /var/www/html/Ludus/vendor/bundle/ruby/2.3/gems/openssl-2.1.2/ext/openssl
+make "DESTDIR=" install
+/bin/mkdir -p . ./.gem.20190728-30184-rw1oid
+exit > .RUBYARCHDIR.time
+/usr/bin/install -c -m 0755 openssl.so ./.gem.20190728-30184-rw1oid
