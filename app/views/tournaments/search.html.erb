@@ -2,7 +2,7 @@
 
   <div class="container">
     <div class="row">
-      <div class="col-lg-5"><h2>検索結果</h2></div>
+      <div class="col-lg-4"><h2>検索結果</h2></div>
       <div class="col-lg-4">
         <dl class="searchbox">
           <%= search_form_for @search, url: tournaments_search_search_path do |f| %>
@@ -14,14 +14,14 @@
     </div>
   </div>
 
-  <div class="container jscroll jlist">
+  <div class="container jscroll jlist search-list">
     <% @search_tournament.where(is_completed: true).each do |tournament| %>
       <%= link_to tournament_path(tournament.id) do %>
         <div class="row entry-list">
           <div class="col-lg-6">
-            <%= attachment_image_tag tournament, :image, :fill, 200, 200, fallback:"no-Ludus.png", size:"200x200" %>
+            <%= attachment_image_tag tournament, :image, :fill, 200, 200, fallback:"/images/no-Ludus2.png", size:"200x200" %>
           </div>
-          <div class="col-lg-6 s-list">
+          <div class="col-lg-4 s-list">
             <p class="s-result"><%= tournament.name %></p>
             <p class="s-result"><%= tournament.title.game %></p>
             <p class="s-result"><%= simple_time(tournament.date) %></p>
@@ -30,6 +30,7 @@
         </div>
       <% end %>
     <% end %>
+    <%= paginate @search_tournament %>
   </div>
 </div>
 

@@ -1,9 +1,3 @@
-<%- if controller_name != 'sessions' %>
-  <%= link_to "Log in", new_session_path(resource_name) %><br />
-<% end %>
-
-
-
 <%- if devise_mapping.confirmable? && controller_name != 'confirmations' %>
   <%= link_to "Didn't receive confirmation instructions?", new_confirmation_path(resource_name) %><br />
 <% end %>
@@ -14,9 +8,9 @@
 
 <%- if devise_mapping.omniauthable? %>
   <%- resource_class.omniauth_providers.each do |provider| %>
-    <%= link_to omniauth_authorize_path(resource_name, provider) do %>
-    	<dic class="btn btn-success google-log"><%= image_tag 'google-logo.png', size:"40x40", class:"g-image" %><span>  </span>Googleアカウントでログイン</dic>
-    <% end %><br />
+    <%= link_to user_google_oauth2_omniauth_authorize_path do %>
+    	<dic class="btn btn-success google-log"><%= image_tag '/images/google-logo.png', size:"40x40", class:"g-image" %><span>  </span>Googleアカウントでログイン
+    <% end %></dic><br />
   <% end %>
 <% end %>
 
@@ -26,4 +20,8 @@
 
 <%- if devise_mapping.recoverable? && controller_name != 'passwords' && controller_name != 'registrations' %>
   <%= link_to "パスワードを忘れた方はこちら", new_password_path(resource_name) %><br />
+<% end %>
+
+<%- if controller_name != 'sessions' %>
+  <%= link_to "ログインはこちら", new_session_path(resource_name) %><br />
 <% end %>

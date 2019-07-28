@@ -1,11 +1,16 @@
-<% if current_user.goods.find_by(tournament_id: tournament.id) %>
-	<%= link_to tournament_goods_path(tournament), method: :delete, remote: true, class:"good-btn" do %>
-		<i class="fa fa-heart" aria-hidden="true" style="color: red;"></i>
-		<%= tournament.goods.count %>いいね
+<% if user_signed_in? %>
+	<% if current_user.goods.find_by(tournament_id: tournament.id) %>
+		<%= link_to tournament_goods_path(tournament), method: :delete, remote: true, class:"good-btn" do %>
+			<i class="fa fa-heart" aria-hidden="true" style="color: red;"></i>
+			<%= tournament.goods.count %>いいね
+		<% end %>
+	<% else %>
+		<%= link_to tournament_goods_path(tournament), method: :post, remote: true, class:"good-btn" do %>
+			<i class="fa fa-heart-o" aria-hidden="true"></i>
+			<%= tournament.goods.count %>いいね
+		<% end %>
 	<% end %>
 <% else %>
-	<%= link_to tournament_goods_path(tournament), method: :post, remote: true, class:"good-btn" do %>
-		<i class="fa fa-heart-o" aria-hidden="true"></i>
-		<%= tournament.goods.count %>いいね
-	<% end %>
+	<i class="fa fa-heart" aria-hidden="true" style="color: red;"></i>
+	<%= tournament.goods.count %>いいね
 <% end %>

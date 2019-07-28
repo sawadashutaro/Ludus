@@ -2,19 +2,41 @@
 
 	<div class="show-contents">
 
-		<h1>マイページ</h1>
+		<h1>
+			<% if @user.id != current_user.id %>
+				<%= @user.name %>さんの
+			<% end %>
+			マイページ
+		</h1>
 		<p><%= notice %></p>
 
 		<div class="myicon">
-			<%= attachment_image_tag @user, :icon, :fill, 300, 300, fallback: "no_image.png", size:"300x300", class:"img-circle" %>
+			<!-- Googleアカウントでログインしてるかで条件分岐（refileで投稿してないからidがurlになってる） -->
+			<% if @user.is_google == false %>
+				<%= attachment_image_tag @user, :icon, :fill, 300, 300, fallback: "/images/no_image.png", size:"300x300", class:"img-circle" %>
+			<% else %>
+				<img src="<%= current_user.icon_id %>" class="img-circle" width="300" height="300">
+			<% end %>
 		</div>
 
 		<div class="container">
-			<div class="row">
+			<div class="row name-line">
 				<div class="col-lg-5"><h2 class="uname"><%= @user.name %></h2></div>
-				<div class="mygood">
+				<div class="mygood col-lg-1">
 					<h2><i class="fa fa-heart" aria-hidden="true" style="color: red;"></i>
 					<%= @total_good %></h2>
+				</div>
+				<!-- いいねの合計によって職業を変更 -->
+				<div class="col-lg-1 job-box">
+					<% if @total_good < 10 %>
+						<%= image_tag '/images/村人左.png', class:"job-size job1" %>
+						<%= image_tag "/images/村人右.png", class:"job-size job2" %>
+						<p>村人</p>
+					<% elsif @total_good >= 10 %>
+					 	<%= image_tag '/images/戦士左.png', class:"job-size job1" %>
+					 	<%= image_tag "/images/戦士右.png", class:"job-size job2" %>
+					 	<p>戦士</p>
+					<% end %>
 				</div>
 			</div>
 		</div>
@@ -50,7 +72,7 @@
 						<%= link_to tournament_path(entry.tournament_id) do %>
 							<div class="row entry-list">
 								<div class="col-lg-6">
-									<%= attachment_image_tag entry.tournament, :image, :fill, 200, 200, fallback:"no-Ludus.png", size:"200x200" %>
+									<%= attachment_image_tag entry.tournament, :image, :fill, 200, 200, fallback:"/images/no-Ludus2.png", size:"200x200" %>
 								</div>
 								<div class="col-lg-6">
 									<p class="s-result"><%= entry.tournament.name %></p>
@@ -70,7 +92,7 @@
 						<%= link_to tournament_path(tournament.id) do %>
 							<div class="row post-list">
 								<div class="col-lg-6">
-							       <%= attachment_image_tag tournament, :image, :fill, 200, 200, fallback:"no-Ludus.png", size:"200x200" %>
+							       <%= attachment_image_tag tournament, :image, :fill, 200, 200, fallback:"/images/no-Ludus2.png", size:"200x200" %>
 							    </div>
 							    <div class="col-lg-6">
 								    <p class="s-result"><%= tournament.name %></p>
@@ -92,7 +114,7 @@
 									<% room.members.each do |member| %>
 										<div class="row myroom-list">
 											<div class="col-lg-6">
-												<%= attachment_image_tag member.user, :icon, :fill, 150, 150, fallback: "no_image.png", size:"200x200", class: "img-circle" %>
+												<%= attachment_image_tag member.user, :icon, :fill, 150, 150, fallback: "/images/no_image.png", size:"200x200", class: "img-circle" %>
 											</div>
 											<div class="col-lg-6">
 												<p class="s-result"><%= room.tournament.name %></p>
@@ -113,7 +135,7 @@
 						<%= link_to tournament_path(tournament.id) do %>
 							<div class="row post-list">
 								<div class="col-lg-6">
-									<%= attachment_image_tag tournament, :image, :fill, 200, 200, fallback:"no-Ludus.png", size:"200x200" %>
+									<%= attachment_image_tag tournament, :image, :fill, 200, 200, fallback:"/images/no-Ludus2.png", size:"200x200" %>
 								</div>
 								<div class="col-lg-6">
 									<% if tournament.name != nil %>
@@ -144,7 +166,7 @@
 				<%= link_to tournament_path(tournament.id) do %>
 					<div class="row">
 						<div class="col-lg-3">
-							<%= attachment_image_tag tournament, :image, :fill, 200, 200, fallback:"no-image.png", size:"200x200" %>
+							<%= attachment_image_tag tournament, :image, :fill, 200, 200, fallback:"/images/no-Ludus2.png", size:"200x200" %>
 						</div>
 						<div class="col-lg-3">
 							<p class="s-result"><%= tournament.name %></p>

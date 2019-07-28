@@ -69,7 +69,8 @@ gem 'ransack'
 
 gem 'jquery-rails'
 
-gem 'omniauth-twitter'
+
+gem 'omniauth'
 
 gem 'omniauth-google-oauth2'
 
@@ -92,3 +93,9 @@ gem "font-awesome-sass"
 gem "geocoder"
 
 gem "kaminari"
+
+gem "rack-mini-profiler", require:false
+
+gem "bullet"
+
+gem "dotenv-rails"
