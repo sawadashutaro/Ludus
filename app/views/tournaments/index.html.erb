@@ -35,8 +35,8 @@
 
   <div class="container">
     <div class="row">
-      <div class="col-lg-2"></div>
-      <div class="col-lg-3"><h1>大会一覧</h1></div>
+      <div class="col-lg-1"></div>
+      <div class="col-lg-4"><h1>大会一覧</h1></div>
         <div class="col-lg-4">
            <dl class="searchbox">
              <%= search_form_for @search, url: tournaments_search_search_path do |f| %>
@@ -64,9 +64,9 @@
        <% title.tournaments.where(is_completed: true).each do |tournament| %>
         <%= link_to tournament_path(tournament.id) do %>
           <li>
-            <div><%= attachment_image_tag tournament, :image, fallback:"/images/no-Ludus2.png", size:"200x200" %></div>
-            <div><%= tournament.name %></div>
-            <div><%= simple_time(tournament.date) %></div>
+            <div class="bx-li"><%= attachment_image_tag tournament, :image, fallback:"/images/no-Ludus2.png", size:"200x200" %></div>
+            <div class="bx-li"><%= tournament.name %></div>
+            <div class="bx-li"><%= simple_time(tournament.date) %></div>
           </li>
         <% end %>
        <% end %>
