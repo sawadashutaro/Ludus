@@ -16,7 +16,7 @@
 		<% end %>
 
 		<div class="n-name">
-			<h4>大会名</h4>
+			<h4>大会名<span class="n-string">※必須</span></h4>
 			<%= f.text_field :name, class:"form-control", size:"10" %>
 		</div>
 
@@ -32,7 +32,7 @@
 		</div>
 
 		<div class="date">
-			<h4>開催日時</h4>
+			<h4>開催日時<span class="n-string">※必須</span></h4>
 			<%= f.datetime_field :date, class:"form-control" %>
 			<p>※時間まで入力してください</p>
 		</div>
@@ -43,11 +43,11 @@
 		</div>
 
 		<div class="maxi">
-			<h4>上限人数</h4>
+			<h4>上限人数<span class="n-string">※必須</span></h4>
 			<%= f.number_field :maximum, min:"1", class:"form-control" %>
 		</div>
 
-		<h4>ゲーム選択</h4>
+		<h4>ゲーム選択<span class="n-string">※必須</span></h4>
 		<%= f.select :title_id, Title.all.map{|t| [t.game, t.id]}, include_blank:"選択してください", size:"100x100" %>
 
 		<h4>詳細</h4>

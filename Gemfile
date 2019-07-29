@@ -100,9 +100,13 @@ gem "bullet"
 
 gem "dotenv-rails"
 
-gem 'json'
+gem 'rails_admin', '~>1.3'
 
-gem 'mysql2'
+gem 'cancancan'
 
-gem 'listen', '>= 3.0.5', '< 3.2'
-gem 'unicorn'
+ gem 'json'
+
+ gem 'mysql2'
+
+ gem 'listen', '>= 3.0.5', '< 3.2'
+ gem 'unicorn'
