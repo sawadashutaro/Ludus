@@ -1,7 +1,7 @@
 source 'https://rubygems.org'
 git_source(:github) { |repo| "https://github.com/#{repo}.git" }
 
-ruby '2.3.8'
+ruby '2.5.5'
 
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
 gem 'rails', '~> 5.2.3'
@@ -100,9 +100,13 @@ gem "bullet"
 
 gem "dotenv-rails"
 
-gem 'json'
+gem 'rails_admin', '~>1.3'
 
-gem 'mysql2'
+gem 'cancancan'
 
-gem 'listen', '>= 3.0.5', '< 3.2'
-gem 'unicorn'
+# gem 'json'
+
+# gem 'mysql2'
+
+# gem 'listen', '>= 3.0.5', '< 3.2'
+# gem 'unicorn'
