@@ -181,11 +181,7 @@ GEM
     multi_xml (0.6.0)
     multipart-post (2.1.1)
     mustermann (1.0.3)
-<<<<<<< HEAD
-    mysql2 (0.5.2)
-=======
     nested_form (0.3.2)
->>>>>>> 267a33b5bae74749a8c09155b3f237ff711d3f8d
     netrc (0.11.0)
     nio4r (2.4.0)
     nokogiri (1.10.3)
