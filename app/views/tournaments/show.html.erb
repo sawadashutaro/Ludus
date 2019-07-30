@@ -42,16 +42,17 @@
       <div class="col-lg-2">
         <%= link_to user_path(@tournament.user.id) do %>
         <h3>
-          <!-- Googleアカウントでログインしてるかで条件分岐（refileで投稿してないからidがurlになってる） -->
+          <!-- Googleアカウントでログインしてるかで条件分岐（refileで投稿してないからicon_idがurlになっているため） -->
           <% if @tournament.user.is_google == false %>
             <%= attachment_image_tag @tournament.user, :icon, :fill, 50, 50, class:"img-circle", fallback:"/images/no_image.png", size:"50x50" %>
           <% else %>
-            <img src="<%= @tournament.user.icon_id %>" class="img-circle" width="50" height="50">
+            <img src="<%= @tournament.user.icon_id %>" class="img-circle icon-g" width="50" height="50">
           <% end %>
           <% end %>
           <%= @tournament.user.name %>
         </h3>
       </div>
+      <!-- そのユーザーの持つ総いいね数で職業が変わる -->
       <div class="col-lg-1 job-box">
        <% if @total_good < 10 %>
         <%= image_tag '/images/村人左.png', class:"job-size job1" %>

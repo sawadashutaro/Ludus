@@ -54,6 +54,9 @@
 					<%= link_to "プロフィール編集へ", edit_user_path, class:"btn btn-warning" %>
 					<%= link_to "大会新規投稿", new_tournament_path, class:"btn btn-success" %>
 					<%= link_to "ログアウト", destroy_user_session_path, method: :delete, class:"btn btn-danger" %>
+					<% if current_user.try(:admin?) %>
+						<%= link_to "管理画面", "/admin", class:"btn btn-default" %>
+					<% end %>
 				</div>
 
 			</div>
