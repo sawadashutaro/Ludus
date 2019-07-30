@@ -83,12 +83,21 @@
 	background-color: #fff;
 	padding:10px;
 }
+.tbody-search{
+	width:60%;
+	min-height: 550px;
+	margin:0 auto;
+	margin-bottom: 20px;
+	background-color: #fff;
+	padding:10px;
+}
 
 .rbody{
 	width:50%;
+	min-height: 540px;
 	margin:0 auto;
 	background-color: #fff;
-	padding:10px;
+	padding-top:10px;
 }
 .s-result{
   border:1px solid #aaa;
@@ -396,7 +405,7 @@ header{
 
   .star {
 			position: absolute;
-      background: url(efect2.png) no-repeat;
+      background: url(/images/efect2.png) no-repeat;
       background-size: contain;
       overflow: hidden;
 			&.star-1 {

@@ -45,20 +45,25 @@
 		<h3><%= @room.tournament.user.name %>さんとのチャットルーム</h3>
 	<% end %>
 
-	<% if user_signed_in? %>
-	<div class="chat-form">
-		<%= label nil, nil, 'チャットを入力してください' %>
-		<%= text_field nil, nil, 'data-behavior': 'room_speaker', class:"c-form" %>
-	</div>
-	<% else %>
-		<p>ログインするとチャットが打てるようになります</p>
-	<% end %>
 
-	<div id="messages" data-room_id="<%= @room.id %>">
+
+	<div class="chat-scroll">
+		<div id="messages" data-room_id="<%= @room.id %>">
+		</div>
+
+		<div class="jscroll">
+			<%= render "messages/list", messages: @messages %>
+		</div>
 	</div>
 
-	<div class="jscroll">
-		<%= render "messages/list", messages: @messages %>
+	<div class="chat-form-box">
+		<% if user_signed_in? %>
+			<div class="chat-form">
+				<%= text_field nil, nil, 'data-behavior': 'room_speaker', class:"form-control", placeholder: 'チャットを入力してください' %>
+			</div>
+		<% else %>
+			<p>ログインするとチャットが打てるようになります</p>
+		<% end %>
 	</div>
 
 </div>

@@ -1,7 +1,7 @@
 class RoomsController < ApplicationController
   def show
   	@room = Room.find(params[:id])
-  	@messages = @room.messages.page(params[:page]).per(20).order(id: "DESC")
+  	@messages = @room.messages.page(params[:page]).per(10).order(id: "DESC")
     @tournament = Tournament.find_by(id: @room.tournament.id)
     @open_room = @tournament.rooms.find_by(is_opened: true)
   end
