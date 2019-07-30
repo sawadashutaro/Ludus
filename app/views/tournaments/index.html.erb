@@ -63,11 +63,11 @@
      <ul class="bxslider">
        <% title.tournaments.where(is_completed: true).each do |tournament| %>
         <%= link_to tournament_path(tournament.id) do %>
-          <li>
+          <li class="object">
             <div class="bx-li"><%= attachment_image_tag tournament, :image, fallback:"/images/no-Ludus2.png", size:"200x200" %></div>
-            <div class="bx-li"><%= tournament.name %></div>
-            <div class="bx-li"><%= simple_time(tournament.date) %></div>
           </li>
+          <div class="bx-li"><%= tournament.name %></div>
+          <div class="bx-li"><%= simple_time(tournament.date) %></div>
         <% end %>
        <% end %>
      </ul>

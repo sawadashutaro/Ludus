@@ -34,15 +34,15 @@
 <div class="rbody">
 
 	<% if @room.is_opened == true %>
-		<h1><%= @room.tournament.name %>のグループチャットルーム</h1>
+		<h1 class="room-name"><%= @room.tournament.name %>のグループチャットルーム</h1>
 	<% elsif @room.tournament.user_id == current_user.id %>
-		<h1><%= @room.tournament.name %></h1>
+		<h1 class="room-name"><%= @room.tournament.name %></h1>
 		<% @room.members.each do |member| %>
-			<h3><%= member.user.name %>さんとのチャットルーム</h3>
+			<h3 class="room-name"><%= member.user.name %>さんとのチャットルーム</h3>
 		<% end %>
 	<% else %>
-		<h1><%= @room.tournament.name %></h1>
-		<h3><%= @room.tournament.user.name %>さんとのチャットルーム</h3>
+		<h1 class="room-name"><%= @room.tournament.name %></h1>
+		<h3 class="room-name"><%= @room.tournament.user.name %>さんとのチャットルーム</h3>
 	<% end %>
 
 
